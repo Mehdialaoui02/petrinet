@@ -11,5 +11,13 @@ public class Place {
 		this.tokens_number = tokens_number;
 		this.arcsList = arcsList;
 	}
+	
+	public int get_tokens_nb() {
+		return this.tokens_number;
+	}
+	
+	public void set_tokens_nb(int n) {
+		this.tokens_number = n;
+	}
 
 }
