@@ -33,6 +33,8 @@ public class PetriNet {
 			System.out.println("Tirage impossible");
 		}
 	}
+	
+	
 //	private void add_transition(exiting_ArcsList, entreing_ArcList) {
 //		
 //	}

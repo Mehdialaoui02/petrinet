@@ -19,5 +19,25 @@ public class Place {
 	public void set_tokens_nb(int n) {
 		this.tokens_number = n;
 	}
+	
+	public boolean is_empty() {
+		if (this.tokens_number == 0) {
+			return true;
+		}
+		return false;
+	}
+	
+	public LinkedList<Arc> get_arcList(){
+		return this.arcsList;
+	}
+	
+	public void add_tokens(int number) {
+		this.tokens_number += number;
+	}
+	
+	public void remove_tokens(int number) {
+		this.tokens_number -= number;
+	}
+	
 
 }
