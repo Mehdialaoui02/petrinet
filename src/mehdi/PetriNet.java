@@ -15,12 +15,12 @@ public class PetriNet {
 	public void firable_transitions() {
 		for (Transition t : this.transitionsList) {
 			System.out.println("La liste est :");
-            System.out.println(t.isfirable());
+            System.out.println(t.is_firable());
         }
 	}
 	
 	public void fire(Transition t) {
-		if (t.isFirable()) {
+		if (t.is_firable()) {
 			for (Arc arc : t.get_enteringList()) {
 				arc.execute();
 			}

@@ -1,9 +1,9 @@
 package mehdi;
 
-public class Arc {
-    private int weight;
-    private Place place;
-    private Transition transition;
+public abstract class Arc {
+    protected int weight;
+    protected Place place;
+    protected Transition transition;
     
     public Arc(int weight, Place place, Transition transition) {
         this.place= place;
@@ -19,5 +19,17 @@ public class Arc {
     public Transition get_Transition() {
     	return this.transition;
     }
-
+    
+    public void set_weight(int w) {
+    	this.weight = w;
+    }
+    
+//  public boolean is_exiting() {
+//	
+//	}
+//  public boolean is_entering() {
+//	
+//	}
+    
+    public abstract void execute();
 }
