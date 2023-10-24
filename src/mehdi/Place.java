@@ -39,5 +39,9 @@ public class Place {
 		this.tokens_number -= number;
 	}
 	
+	public void remove_all_tokens() {
+		this.tokens_number = 0;
+	}
+	
 
 }
