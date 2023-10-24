@@ -24,6 +24,7 @@ public abstract class Arc {
     	this.weight = w;
     }
     
+    public abstract boolean is_executable();
 //  public boolean is_exiting() {
 //	
 //	}

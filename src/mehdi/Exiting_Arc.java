@@ -20,4 +20,11 @@ public class Exiting_Arc extends Arc {
 		this.place.add_tokens(this.weight);
 	}
 
+	@Override
+	public boolean is_executable() {
+		// TODO Auto-generated method stub
+		
+		;
+	}
+
 }
