@@ -19,5 +19,9 @@ public class Entering_Arc extends Arc {
 	public void execute() {
 		this.place.remove_tokens(this.weight);
 	}
+
+	public boolean is_executable() {
+		return this.place.get_tokens_nb() >= this.weight;
+	}
 	
 }

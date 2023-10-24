@@ -12,4 +12,10 @@ public class Emptying_Arc extends Entering_Arc{
 		this.place.remove_all_tokens();
 	}
 	
+	@Override
+	public boolean is_executable() {
+		return this.place.get_tokens_nb() > 0;
+	}
+
+	
 }
