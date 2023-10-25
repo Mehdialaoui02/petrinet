@@ -28,5 +28,19 @@ public class Transition {
 		return true;
     	
     }
+    public void fire() {
+    	if (this.is_firable()) {
+			for (Arc arc : this.get_enteringList()) {
+				arc.execute();
+			}
+			for (Arc arc : this.get_exitingList()) {
+				arc.execute();
+			}
+		System.out.println("Tirage fait avec succès");	
+		}
+		else {
+			System.out.println("Tirage impossible");
+		}
+    }
 
 }

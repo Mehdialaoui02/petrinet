@@ -20,24 +20,20 @@ public class PetriNet {
 	}
 	
 	public void fire(Transition t) {
-		if (t.is_firable()) {
-			for (Arc arc : t.get_enteringList()) {
-				arc.execute();
-			}
-			for (Arc arc : t.get_exitingList()) {
-				arc.execute();
-			}
-		System.out.println("Tirage fait avec succès");	
-		}
-		else {
-			System.out.println("Tirage impossible");
-		}
+		t.fire();	
+	}
+		
+	
+	
+	public void add_transition(LinkedList<Arc> exiting_ArcList, LinkedList<Arc> entering_ArcList) {
+		Transition transition  = new Transition(exiting_ArcList, entering_ArcList);
+		this.transitionsList.addLast(transition);
 	}
 	
+	public void remove_transition(Transition transition) {
+		this.transitionsList.remove(transition);
+	}
 	
-//	private void add_transition(exiting_ArcsList, entreing_ArcList) {
-//		
-//	}
 	
 	
 	

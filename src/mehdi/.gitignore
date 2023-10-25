@@ -2,3 +2,7 @@
 /Place.class
 /Arc.class
 /Transition.class
+/Emptying_Arc.class
+/Entering_Arc.class
+/Exiting_Arc.class
+/Zero_Arc.class
