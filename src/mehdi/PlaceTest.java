@@ -8,17 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class PlaceTest {
 
-<<<<<<< HEAD
-	private Place place;
 
-    @Before
-    public void setUp() {
-        LinkedList<Arc> arcsList = new LinkedList<Arc>();
-        place = new Place(0, arcsList);
-    }
-
-=======
->>>>>>> d67d62f6fbda65fe4d4f498bc063b2928b16ae6b
     @Test
     public void testGetTokensNumber() {
     	Place place = new Place(5, new LinkedList<Arc>());
@@ -34,12 +24,10 @@ class PlaceTest {
 
     @Test
     public void testIsEmptyWhenEmpty() {
-<<<<<<< HEAD
-    	System.out.println(place.get_tokens_nb());
-=======
+
     	Place place = new Place(8, new LinkedList<Arc>());
     	place.set_tokens_nb(0);
->>>>>>> d67d62f6fbda65fe4d4f498bc063b2928b16ae6b
+
         assertTrue(place.is_empty());
     }
 
