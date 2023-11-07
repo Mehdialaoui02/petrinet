@@ -9,15 +9,18 @@ public class PetriNet {
 	
 	private LinkedList<Transition> transitionsList; 
 	private LinkedList<Place> placesList;
+	private LinkedList<Arc> arclist;
 	
 	/**
 	 * Consrteucteur du réseau de petri
 	 * @param transitionsList : Liste des transitions présentent dans le réseau. 
 	 * @param placeList : Liste des places présentent dans le réseau.
+	 * @param arclist 
 	 */
-	public PetriNet(LinkedList<Transition> transitionsList, LinkedList<Place> placeList) {
+	public PetriNet(LinkedList<Transition> transitionsList, LinkedList<Place> placeList, LinkedList<Arc> arclist) {
 		this.transitionsList = transitionsList;
 		this.placesList = placeList;
+		this.arclist = arclist;
 	}
 	
 	/**
@@ -57,6 +60,28 @@ public class PetriNet {
 	public void remove_transition(Transition transition) {
 		this.transitionsList.remove(transition);
 	}
+	
+	public void add_enteringArc(int w, Place p, Transition t) {
+		Entering_Arc arc = new Entering_Arc(w,p,t);
+		t.add_enteringArc(arc);
+		
+	}
+		
+	public void add_exitingArc(int w, Place p, Transition t) {
+		Exiting_Arc arc = new Exiting_Arc(w,p,t);
+		t.add_exitingArc(arc);	
+	}
+	
+	public void add_zeroArc(int w, Place p, Transition t) {
+		Zero_Arc arc = new Zero_Arc(w,p,t);
+		t.add_enteringArc(arc);
+	}
+	
+	public void add_emptyingArc(int w, Place p, Transition t) {
+		Emptying_Arc arc = new Emptying_Arc(w,p,t);
+		t.add_enteringArc(arc);
+	}
+	
 
 	public LinkedList<Place> getPlacesList() {
 		return placesList;
