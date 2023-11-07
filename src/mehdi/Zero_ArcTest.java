@@ -28,7 +28,7 @@ class Zero_ArcTest {
     }
 
     @Test
-    public void testIsExecutableWhenNotExecutable() {
+    public void testIsExecutableWhenNotExecutable() throws NegativeTokenValueException {
         place.set_tokens_nb(1); 
         assertFalse(zeroArc.is_executable());
     }

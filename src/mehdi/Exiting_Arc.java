@@ -16,8 +16,12 @@ public class Exiting_Arc extends Arc {
 	}
 
 	@Override
-	public void execute() {
-		this.place.add_tokens(this.weight);
+	public void execute(){
+		try {
+			this.place.add_tokens(this.weight);
+		} catch (NegativeTokenValueException e) {
+			// TODO Auto-generated catch block
+		}
 	}
 
 

@@ -16,14 +16,14 @@ class PlaceTest {
     }
 
     @Test
-    public void testSetTokensNumber() {
+    public void testSetTokensNumber() throws NegativeTokenValueException {
     	Place place = new Place(5, new LinkedList<Arc>());
         place.set_tokens_nb(5);
         assertEquals(5, place.get_tokens_nb());
     }
 
     @Test
-    public void testIsEmptyWhenEmpty() {
+    public void testIsEmptyWhenEmpty() throws NegativeTokenValueException {
 
     	Place place = new Place(8, new LinkedList<Arc>());
     	place.set_tokens_nb(0);
@@ -32,7 +32,7 @@ class PlaceTest {
     }
 
     @Test
-    public void testIsEmptyWhenNotEmpty() {
+    public void testIsEmptyWhenNotEmpty() throws NegativeTokenValueException {
     	Place place = new Place(5, new LinkedList<Arc>());
         place.set_tokens_nb(3);
         assertFalse(place.is_empty());
@@ -47,14 +47,14 @@ class PlaceTest {
     }
 
     @Test
-    public void testAddTokens() {
+    public void testAddTokens() throws NegativeTokenValueException {
     	Place place = new Place(5, new LinkedList<Arc>());
         place.add_tokens(3);
         assertEquals(8, place.get_tokens_nb());
     }
 
     @Test
-    public void testRemoveTokens() {
+    public void testRemoveTokens() throws NegativeTokenValueException {
     	Place place = new Place(5, new LinkedList<Arc>());
         place.set_tokens_nb(5);
         place.remove_tokens(2);
@@ -62,7 +62,7 @@ class PlaceTest {
     }
 
     @Test
-    public void testRemoveAllTokens() {
+    public void testRemoveAllTokens() throws NegativeTokenValueException {
     	Place place = new Place(5, new LinkedList<Arc>());
         place.set_tokens_nb(3);
         place.remove_all_tokens();

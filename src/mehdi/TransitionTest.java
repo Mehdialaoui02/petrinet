@@ -50,7 +50,7 @@ public class TransitionTest extends TestCase {
     }
 
     @Test
-    public void testFireSuccess() {
+    public void testFireSuccess() throws NotFirableTransitionException {
         Place enteringPlace = new Place(2, new LinkedList<Arc>());
         Place exitingPlace = new Place(1, enteringList);
         Arc arc1 = new Entering_Arc(1, enteringPlace, transition);
@@ -65,7 +65,7 @@ public class TransitionTest extends TestCase {
     }
 
     @Test
-    public void testFireFailure() {
+    public void testFireFailure() throws NotFirableTransitionException {
         Place place = new Place(2, new LinkedList<Arc>());
         Arc arc = new Entering_Arc(3, place, transition);
         enteringList.add(arc);
