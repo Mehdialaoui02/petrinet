@@ -237,18 +237,12 @@ class PetriNetTest {
 
     @Test
     public void testGetPlacesList() {
-<<<<<<< HEAD
-    	
-=======
->>>>>>> 943175c6c48052bec9fb7d03c066aabd36254e18
+
     	transitionsList = new LinkedList<Transition>();
         placesList = new LinkedList<Place>();
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
-<<<<<<< HEAD
-                
-=======
->>>>>>> 943175c6c48052bec9fb7d03c066aabd36254e18
+
         assertEquals(placesList, petriNet.getPlacesList());
     }
 
