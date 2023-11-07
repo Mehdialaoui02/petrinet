@@ -27,6 +27,10 @@ public class Place {
 		return false;
 	}
 	
+	public void add_arc(Arc arc) {
+		this.arcsList.add(arc);
+	}
+	
 	public LinkedList<Arc> get_arcList(){
 		return this.arcsList;
 	}

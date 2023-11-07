@@ -26,8 +26,16 @@ public class Transition {
     		}
     	}
 		return true;
-    	
     }
+    
+    public void add_exitingArc(Arc arc) {
+		this.exiting_ArcsList.add(arc);
+	}
+    
+    public void add_enteringArc(Arc arc) {
+		this.entering_ArcsList.add(arc);
+	}
+    
     public void fire() {
     	if (this.is_firable()) {
 			for (Arc arc : this.get_enteringList()) {
