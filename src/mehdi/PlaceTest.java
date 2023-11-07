@@ -47,17 +47,17 @@ class PlaceTest {
     }
 
     @Test
-    public void testAddTokens() throws NegativeTokenValueException {
+    public void testAddTokens() throws NegativeTokenValueException { //CAJ1 -- CAJ0
     	Place place = new Place(5, new LinkedList<Arc>());
         place.add_tokens(3);
         assertEquals(8, place.get_tokens_nb());
     }
 
     @Test
-    public void testRemoveTokens() throws NegativeTokenValueException {
+    public void testRemoveTokens() throws NegativeTokenValueException { 
     	Place place = new Place(5, new LinkedList<Arc>());
-        place.set_tokens_nb(5);
-        place.remove_tokens(2);
+        place.set_tokens_nb(5);//CDJ1 -- CDJ0
+        place.remove_tokens(2);//CEJ1 -- CEJ0
         assertEquals(3, place.get_tokens_nb());
     }
 
