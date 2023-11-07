@@ -100,6 +100,10 @@ class PetriNetTest {
 
     @Test
     public void testGetPlacesList() {
+    	transitionsList = new LinkedList<Transition>();
+        placesList = new LinkedList<Place>();
+        arclist = new LinkedList<Arc>();
+        petriNet = new PetriNet(transitionsList, placesList, arclist);
         assertEquals(placesList, petriNet.getPlacesList());
     }
 
