@@ -32,7 +32,7 @@ public class PetriNet {
 	
 	/**
 	 * Tire une transition
-	 * @param t
+	 * @param t : Transition à tirer
 	 */
 	public void fire(Transition t) {
 		t.fire();	
@@ -62,12 +62,6 @@ public class PetriNet {
 	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		LinkedList<Transition> L = new LinkedList<Transition>();
-		LinkedList<Place> L2 = new LinkedList<Place>();
-		
-		PetriNet p = new PetriNet(L,L2);
-		p.firable_transitions();
 		
 	}
 
