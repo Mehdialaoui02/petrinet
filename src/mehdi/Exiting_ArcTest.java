@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class PetriNetTest {
+class Exiting_ArcTest {
 
 	@Test
-	void test() {klnfklsrfnldfnjklnisdijn
+	void test() {
 		fail("Not yet implemented");
 	}
 
