@@ -21,7 +21,7 @@ public class Transition {
     
     public boolean is_firable() {
     	for (Arc arc : this.entering_ArcsList) {
-    		if (arc.get_Weight()>= arc.get_Place().get_tokens_nb()) {
+    		if (arc.get_Weight() > arc.get_Place().get_tokens_nb()) {
     			return false; 
     		}
     	}
