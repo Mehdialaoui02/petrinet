@@ -13,7 +13,7 @@ class Emptying_ArcTest {
 	    @BeforeEach
 	    public void setUp() {
 	        place = new Place(3, null); 
-	        emptyingArc = new Emptying_Arc(1, place, null);
+	        emptyingArc = new Emptying_Arc(1, place, null); //CAA
 	    }
 
 	    @Test

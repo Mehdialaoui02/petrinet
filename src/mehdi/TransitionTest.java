@@ -42,7 +42,7 @@ public class TransitionTest extends TestCase {
     }
     
     @Test
-    public void testIsFirableTrueDoubleArc() {
+    public void testIsFirableTrueDoubleArc() {//T1
         Place place = new Place(2, new LinkedList<Arc>());
         Entering_Arc arc1 = new Entering_Arc(1, place, transition);
         Entering_Arc arc2 = new Entering_Arc(2, place, transition);
@@ -59,7 +59,7 @@ public class TransitionTest extends TestCase {
         assertFalse(transition.is_firable());
     }
     
-    public void testIsFirableFalseZero_Emptying() {
+    public void testIsFirableFalseZero_Emptying() {//T2
     	Place place = new Place(3, new LinkedList<Arc>());
     	Entering_Arc arc1 = new Emptying_Arc(2, place, transition);
     	Entering_Arc arc2 = new Zero_Arc(0, place, transition);
@@ -68,7 +68,7 @@ public class TransitionTest extends TestCase {
         assertFalse(transition.is_firable());
     }
     
-    public void testIsFirableFalseDoubleArc() {
+    public void testIsFirableFalseDoubleArc() {//T3
     	Place place = new Place(1, new LinkedList<Arc>());
     	Entering_Arc arc1 = new Entering_Arc(3, place, transition);
     	Entering_Arc arc2 = new Entering_Arc(1, place, transition);

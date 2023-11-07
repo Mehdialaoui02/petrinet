@@ -40,7 +40,7 @@ public class Place {
 		return this.arcsList;
 	}
 	
-	public void add_tokens(int number) throws NegativeTokenValueException{
+	public void add_tokens(int number) throws NegativeTokenValueException{ 
 		if ( number+this.tokens_number >=0) {
 			this.tokens_number += number;
 		} else {
