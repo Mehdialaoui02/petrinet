@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 class PlaceTest {
 
+<<<<<<< HEAD
 	private Place place;
 
     @Before
@@ -17,31 +17,42 @@ class PlaceTest {
         place = new Place(0, arcsList);
     }
 
+=======
+>>>>>>> d67d62f6fbda65fe4d4f498bc063b2928b16ae6b
     @Test
     public void testGetTokensNumber() {
-        assertEquals(0, place.get_tokens_nb());
+    	Place place = new Place(5, new LinkedList<Arc>());
+        assertEquals(5, place.get_tokens_nb());
     }
 
     @Test
     public void testSetTokensNumber() {
+    	Place place = new Place(5, new LinkedList<Arc>());
         place.set_tokens_nb(5);
         assertEquals(5, place.get_tokens_nb());
     }
 
     @Test
     public void testIsEmptyWhenEmpty() {
+<<<<<<< HEAD
     	System.out.println(place.get_tokens_nb());
+=======
+    	Place place = new Place(8, new LinkedList<Arc>());
+    	place.set_tokens_nb(0);
+>>>>>>> d67d62f6fbda65fe4d4f498bc063b2928b16ae6b
         assertTrue(place.is_empty());
     }
 
     @Test
     public void testIsEmptyWhenNotEmpty() {
+    	Place place = new Place(5, new LinkedList<Arc>());
         place.set_tokens_nb(3);
         assertFalse(place.is_empty());
     }
 
     @Test
     public void testAddArc() {
+    	Place place = new Place(5, new LinkedList<Arc>());
         Arc arc = new Entering_Arc(3, place, new Transition(null, null));
         place.add_arc(arc);
         assertEquals(1, place.get_arcList().size());
@@ -49,12 +60,14 @@ class PlaceTest {
 
     @Test
     public void testAddTokens() {
+    	Place place = new Place(5, new LinkedList<Arc>());
         place.add_tokens(3);
-        assertEquals(3, place.get_tokens_nb());
+        assertEquals(8, place.get_tokens_nb());
     }
 
     @Test
     public void testRemoveTokens() {
+    	Place place = new Place(5, new LinkedList<Arc>());
         place.set_tokens_nb(5);
         place.remove_tokens(2);
         assertEquals(3, place.get_tokens_nb());
@@ -62,7 +75,8 @@ class PlaceTest {
 
     @Test
     public void testRemoveAllTokens() {
-        place.set_tokens_nb(5);
+    	Place place = new Place(5, new LinkedList<Arc>());
+        place.set_tokens_nb(3);
         place.remove_all_tokens();
         assertEquals(0, place.get_tokens_nb());
     }

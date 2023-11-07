@@ -23,11 +23,12 @@ public class PetriNet {
 	/**
 	 * Montre toutes les transitions tirables dans le réseau de petri
 	 */
-	public void firable_transitions() {
+	public LinkedList<Transition> firable_transitions() {
+		LinkedList<Transition> firableTransitions = new LinkedList<Transition>();
 		for (Transition t : this.transitionsList) {
-			System.out.println("La liste est :");
-            System.out.println(t.is_firable());
+            firableTransitions.add(t);
         }
+		return firableTransitions;
 	}
 	
 	/**
@@ -56,13 +57,11 @@ public class PetriNet {
 	public void remove_transition(Transition transition) {
 		this.transitionsList.remove(transition);
 	}
-	
-	
-	
+
+	public LinkedList<Place> getPlacesList() {
+		return placesList;
+	}
 	
 
-	public static void main(String[] args) {
-		
-	}
 
 }
