@@ -29,7 +29,9 @@ public class PetriNet {
 	public LinkedList<Transition> firable_transitions() {
 		LinkedList<Transition> firableTransitions = new LinkedList<Transition>();
 		for (Transition t : this.transitionsList) {
-            firableTransitions.add(t);
+			if (t.is_firable()) {
+				firableTransitions.add(t);
+			}
         }
 		return firableTransitions;
 	}
@@ -37,8 +39,9 @@ public class PetriNet {
 	/**
 	 * Tire une transition
 	 * @param t : Transition à tirer
+	 * @throws NotFirableTransitionException 
 	 */
-	public void fire(Transition t) {
+	public void fire(Transition t) throws NotFirableTransitionException {
 		t.fire();	
 	}
 		
@@ -48,9 +51,8 @@ public class PetriNet {
 	 * @param exiting_ArcList : Liste des arcs sortants de la transition.
 	 * @param entering_ArcList : Liste des arcs entrants dans la transition
 	 */
-	public void add_transition(LinkedList<Arc> exiting_ArcList, LinkedList<Arc> entering_ArcList) {
-		Transition transition  = new Transition(exiting_ArcList, entering_ArcList);
-		this.transitionsList.addLast(transition);
+	public void add_transition(Transition t) {
+		this.transitionsList.addLast(t);
 	}
 	
 	/**
@@ -64,22 +66,25 @@ public class PetriNet {
 	public void add_enteringArc(int w, Place p, Transition t) {
 		Entering_Arc arc = new Entering_Arc(w,p,t);
 		t.add_enteringArc(arc);
-		
+		arclist.add(arc);
 	}
 		
 	public void add_exitingArc(int w, Place p, Transition t) {
 		Exiting_Arc arc = new Exiting_Arc(w,p,t);
 		t.add_exitingArc(arc);	
+		arclist.add(arc);
 	}
 	
 	public void add_zeroArc(int w, Place p, Transition t) {
 		Zero_Arc arc = new Zero_Arc(w,p,t);
 		t.add_enteringArc(arc);
+		arclist.add(arc);
 	}
 	
 	public void add_emptyingArc(int w, Place p, Transition t) {
 		Emptying_Arc arc = new Emptying_Arc(w,p,t);
 		t.add_enteringArc(arc);
+		arclist.add(arc);
 	}
 	
 

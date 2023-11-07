@@ -36,7 +36,7 @@ public class Transition {
 		this.entering_ArcsList.add(arc);
 	}
     
-    public void fire() {
+    public void fire() throws NotFirableTransitionException{
     	if (this.is_firable()) {
 			for (Arc arc : this.get_enteringList()) {
 				arc.execute();
@@ -47,7 +47,7 @@ public class Transition {
 		System.out.println("Tirage fait avec succès");	
 		}
 		else {
-			System.out.println("Tirage impossible");
+			throw new NotFirableTransitionException();
 		}
     }
 
