@@ -41,7 +41,7 @@ class PlaceTest {
 
     @Test
     public void testAddArc() {
-        Arc arc = new Entering_Arc(3, place, new Transition(null, null), "rien");
+        Arc arc = new Entering_Arc(3, place, new Transition(null, null));
         place.add_arc(arc);
         assertEquals(1, place.get_arcList().size());
     }

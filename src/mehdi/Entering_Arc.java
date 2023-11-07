@@ -2,7 +2,7 @@ package mehdi;
 
 public class Entering_Arc extends Arc {
 	
-	public Entering_Arc(int weight, Place place, Transition transition,String type) {
+	public Entering_Arc(int weight, Place place, Transition transition) {
 		super(weight, place, transition);
 		// TODO Auto-generated constructor stub
 	}

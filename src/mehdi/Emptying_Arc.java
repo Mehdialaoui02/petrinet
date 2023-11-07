@@ -3,7 +3,7 @@ package mehdi;
 public class Emptying_Arc extends Entering_Arc{
 
 	public Emptying_Arc(int weight, Place place, Transition transition) {
-		super(weight, place, transition, "emptying");
+		super(weight, place, transition);
 		// TODO Auto-generated constructor stub
 	}
 
