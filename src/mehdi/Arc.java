@@ -23,13 +23,6 @@ public abstract class Arc {
     public void set_weight(int w) {
     	this.weight = w;
     }
-    
-//  public boolean is_exiting() {
-//	
-//	}
-//  public boolean is_entering() {
-//	
-//	}
-    
+
     public abstract void execute();
 }

@@ -35,7 +35,7 @@ public class TransitionTest extends TestCase {
 
     @Test
     public void testIsFirableTrue() {
-        Place place = new Place(1, new LinkedList<>());
+        Place place = new Place(1, new LinkedList<Arc>());
         Arc arc1 = new Entering_Arc(1, place, transition);
         enteringList.add(arc1);
 
@@ -44,7 +44,7 @@ public class TransitionTest extends TestCase {
 
     @Test
     public void testIsFirableFalse() {
-    	Place place = new Place(1, new LinkedList<>());
+    	Place place = new Place(1, new LinkedList<Arc>());
     	Arc arc1 = new Entering_Arc(1, place, transition);
         enteringList.add(arc1);
 
@@ -53,7 +53,7 @@ public class TransitionTest extends TestCase {
 
     @Test
     public void testFireSuccess() {
-        Place enteringPlace = new Place(2, new LinkedList<>());
+        Place enteringPlace = new Place(2, new LinkedList<Arc>());
         Place exitingPlace = new Place(1, enteringList);
         Arc arc1 = new Entering_Arc(1, enteringPlace, transition);
         Arc arc2 = new Exiting_Arc(1, exitingPlace, transition);

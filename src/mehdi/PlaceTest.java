@@ -13,7 +13,7 @@ class PlaceTest {
 
     @Before
     public void setUp() {
-        LinkedList<Arc> arcsList = new LinkedList<>();
+        LinkedList<Arc> arcsList = new LinkedList<Arc>();
         place = new Place(0, arcsList);
     }
 
@@ -30,6 +30,7 @@ class PlaceTest {
 
     @Test
     public void testIsEmptyWhenEmpty() {
+    	System.out.println(place.get_tokens_nb());
         assertTrue(place.is_empty());
     }
 
