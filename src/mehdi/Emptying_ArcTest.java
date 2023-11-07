@@ -28,7 +28,7 @@ class Emptying_ArcTest {
 	    }
 
 	    @Test
-	    public void testIsExecutableWhenNotExecutable() {
+	    public void testIsExecutableWhenNotExecutable() throws NegativeTokenValueException {
 	        place.set_tokens_nb(0); 
 	        assertFalse(emptyingArc.is_executable());
 	    }

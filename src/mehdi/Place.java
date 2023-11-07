@@ -16,8 +16,13 @@ public class Place {
 		return this.tokens_number;
 	}
 	
-	public void set_tokens_nb(int n) {
-		this.tokens_number = n;
+	public void set_tokens_nb(int n) throws NegativeTokenValueException{
+		if ( n >=0) {
+			this.tokens_number = n;
+		} else {
+			throw new NegativeTokenValueException();
+		}
+		
 	}
 	
 	public boolean is_empty() {
@@ -35,8 +40,12 @@ public class Place {
 		return this.arcsList;
 	}
 	
-	public void add_tokens(int number) {
-		this.tokens_number += number;
+	public void add_tokens(int number) throws NegativeTokenValueException{
+		if ( number+this.tokens_number >=0) {
+			this.tokens_number += number;
+		} else {
+			throw new NegativeTokenValueException();
+		}
 	}
 	
 	public void remove_tokens(int number) {

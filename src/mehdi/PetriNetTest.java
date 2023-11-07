@@ -23,8 +23,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Transition transition1 = new Transition(new LinkedList<>(), new LinkedList<>());
-        Transition transition2 = new Transition(new LinkedList<>(), new LinkedList<>());
+        Transition transition1 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
+        Transition transition2 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         
         Place place = new Place(4, new LinkedList<Arc>());
         Arc arc = new Entering_Arc(3, place, transition1);
@@ -58,8 +58,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Transition transition1 = new Transition(new LinkedList<>(), new LinkedList<>());
-        Transition transition2 = new Transition(new LinkedList<>(), new LinkedList<>());
+        Transition transition1 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
+        Transition transition2 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         
         Place place = new Place(4, new LinkedList<Arc>());
         Arc arc = new Entering_Arc(3, place, transition1);
@@ -86,8 +86,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Transition transition1 = new Transition(new LinkedList<>(), new LinkedList<>());
-        Transition transition2 = new Transition(new LinkedList<>(), new LinkedList<>());
+        Transition transition1 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
+        Transition transition2 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         
         Place place = new Place(4, new LinkedList<Arc>());
         Arc arc = new Entering_Arc(3, place, transition1);
@@ -121,8 +121,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Transition transition1 = new Transition(new LinkedList<>(), new LinkedList<>());
-        Transition transition2 = new Transition(new LinkedList<>(), new LinkedList<>());
+        Transition transition1 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
+        Transition transition2 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         
         Place place = new Place(4, new LinkedList<Arc>());
         Arc arc = new Entering_Arc(3, place, transition1);
@@ -151,8 +151,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Transition transition1 = new Transition(new LinkedList<>(), new LinkedList<>());
-        Transition transition2 = new Transition(new LinkedList<>(), new LinkedList<>());
+        Transition transition1 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
+        Transition transition2 = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         
         Place place = new Place(4, new LinkedList<Arc>());
         Arc arc = new Entering_Arc(3, place, transition1);
@@ -183,8 +183,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Place place = new Place(0, new LinkedList<>());
-        Transition transition = new Transition(new LinkedList<>(), new LinkedList<>());
+        Place place = new Place(0, new LinkedList<Arc>());
+        Transition transition = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         petriNet.add_enteringArc(1, place, transition);
 
         assertEquals(1, petriNet.getArclist().size());
@@ -198,8 +198,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Place place = new Place(0, new LinkedList<>());
-        Transition transition = new Transition(new LinkedList<>(), new LinkedList<>());
+        Place place = new Place(0, new LinkedList<Arc>());
+        Transition transition = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         petriNet.add_exitingArc(1, place, transition);
 
         assertEquals(1, petriNet.getArclist().size());
@@ -213,8 +213,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Place place = new Place(0, new LinkedList<>());
-        Transition transition = new Transition(new LinkedList<>(), new LinkedList<>());
+        Place place = new Place(0, new LinkedList<Arc>());
+        Transition transition = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         petriNet.add_zeroArc(1, place, transition);
 
         assertEquals(1, petriNet.getArclist().size());
@@ -228,8 +228,8 @@ class PetriNetTest {
         arclist = new LinkedList<Arc>();
         petriNet = new PetriNet(transitionsList, placesList, arclist);
         
-        Place place = new Place(0, new LinkedList<>());
-        Transition transition = new Transition(new LinkedList<>(), new LinkedList<>());
+        Place place = new Place(0, new LinkedList<Arc>());
+        Transition transition = new Transition(new LinkedList<Arc>(), new LinkedList<Arc>());
         petriNet.add_emptyingArc(1, place, transition);
 
         assertEquals(1, transition.get_enteringList().size());

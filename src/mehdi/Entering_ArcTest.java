@@ -40,7 +40,7 @@ class Entering_ArcTest {
     }
 
     @Test
-    public void testExecuteNotEnoughTokens() {
+    public void testExecuteNotEnoughTokens() throws NegativeTokenValueException {
         place.set_tokens_nb(1);
         enteringArc.execute();
         assertEquals(0, place.get_tokens_nb());
@@ -52,7 +52,7 @@ class Entering_ArcTest {
     }
 
     @Test
-    public void testIsExecutableWhenNotExecutable() {
+    public void testIsExecutableWhenNotExecutable() throws NegativeTokenValueException {
         place.set_tokens_nb(1); 
         assertFalse(enteringArc.is_executable());
     }
