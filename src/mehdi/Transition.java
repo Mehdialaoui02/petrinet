@@ -4,14 +4,14 @@ import java.util.LinkedList;
 
 public class Transition {
     private LinkedList<Arc> exiting_ArcsList;
-    private LinkedList<Arc> entering_ArcsList;
+    private LinkedList<Entering_Arc> entering_ArcsList;
     
-    public Transition(LinkedList<Arc> exiting , LinkedList<Arc> entering ) {
+    public Transition(LinkedList<Arc> exiting , LinkedList<Entering_Arc> entering ) {
         this.exiting_ArcsList = exiting;
         this.entering_ArcsList = entering;
     }
         
-    public LinkedList<Arc> get_enteringList() {
+    public LinkedList<Entering_Arc> get_enteringList() {
         	return this.entering_ArcsList;
     }
     
@@ -20,8 +20,8 @@ public class Transition {
     }
     
     public boolean is_firable() {
-    	for (Arc arc : this.entering_ArcsList) {
-    		if (arc.get_Weight() > arc.get_Place().get_tokens_nb()) {
+    	for (Entering_Arc arc : this.entering_ArcsList) {
+    		if (arc.is_executable()==false) {
     			return false; 
     		}
     	}
@@ -32,7 +32,7 @@ public class Transition {
 		this.exiting_ArcsList.add(arc);
 	}
     
-    public void add_enteringArc(Arc arc) {
+    public void add_enteringArc(Entering_Arc arc) {
 		this.entering_ArcsList.add(arc);
 	}
     
