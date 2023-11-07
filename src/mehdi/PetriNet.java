@@ -86,6 +86,10 @@ public class PetriNet {
 	public LinkedList<Place> getPlacesList() {
 		return placesList;
 	}
+
+	public LinkedList<Arc> getArclist() {
+		return arclist;
+	}
 	
 
 
