@@ -45,5 +45,16 @@ class Entering_ArcTest {
         enteringArc.execute();
         assertEquals(0, place.get_tokens_nb());
     }
+    
+    @Test
+    public void testIsExecutableWhenExecutable() {
+        assertTrue(enteringArc.is_executable());
+    }
+
+    @Test
+    public void testIsExecutableWhenNotExecutable() {
+        place.set_tokens_nb(1); 
+        assertFalse(enteringArc.is_executable());
+    }
 
 }

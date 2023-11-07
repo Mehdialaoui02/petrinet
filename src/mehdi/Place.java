@@ -40,7 +40,12 @@ public class Place {
 	}
 	
 	public void remove_tokens(int number) {
-		this.tokens_number -= number;
+		if (this.tokens_number>=number) {
+			this.tokens_number -= number;
+		} else {
+			this.tokens_number = 0;
+		}
+		
 	}
 	
 	public void remove_all_tokens() {
