@@ -14,7 +14,7 @@ public class TransitionTest extends TestCase {
     private Transition transition;
 
     @Before
-    public void setUp() {
+    public void setUp() { //RI
         enteringList = new LinkedList<Entering_Arc>();
         exitingList = new LinkedList<Arc>();
         transition = new Transition(exitingList, enteringList);
@@ -42,43 +42,48 @@ public class TransitionTest extends TestCase {
     }
     
     @Test
-    public void testIsFirableTrueDoubleArc() {//T1
-        Place place = new Place(2, new LinkedList<Arc>());
-        Entering_Arc arc1 = new Entering_Arc(1, place, transition);
-        Entering_Arc arc2 = new Entering_Arc(2, place, transition);
+    public void testIsFirableTrueDoubleArc() { //T1
+        Place place1 = new Place(2, new LinkedList<Arc>());
+        Place place2 = new Place(4, new LinkedList<Arc>());
+        Entering_Arc arc1 = new Entering_Arc(1, place1, transition);
+        Entering_Arc arc2 = new Entering_Arc(2, place2, transition);
         transition.add_enteringArc(arc1);
         transition.add_enteringArc(arc2);
         assertTrue(transition.is_firable());
     }
 
     @Test
-    public void testIsFirableFalse() {
-    	Place place = new Place(1, new LinkedList<Arc>());
-    	Entering_Arc arc1 = new Entering_Arc(3, place, transition);
+    public void testIsFirableFalse() { //A
+    	Place place = new Place(0, new LinkedList<Arc>());
+    	Entering_Arc arc1 = new Entering_Arc(1, place, transition);
         enteringList.add(arc1);
         assertFalse(transition.is_firable());
     }
     
-    public void testIsFirableFalseZero_Emptying() {//T2
-    	Place place = new Place(3, new LinkedList<Arc>());
-    	Entering_Arc arc1 = new Emptying_Arc(2, place, transition);
-    	Entering_Arc arc2 = new Zero_Arc(0, place, transition);
+    public void testIsFirableFalseZero_Emptying() { //T3
+    	Place place1 = new Place(3, new LinkedList<Arc>());
+    	Place place2 = new Place(3, new LinkedList<Arc>());
+
+    	Entering_Arc arc1 = new Emptying_Arc(2, place1, transition);
+    	Entering_Arc arc2 = new Zero_Arc(0, place2, transition);
         enteringList.add(arc1);
         enteringList.add(arc2);
         assertFalse(transition.is_firable());
     }
     
-    public void testIsFirableFalseDoubleArc() {//T3
-    	Place place = new Place(1, new LinkedList<Arc>());
-    	Entering_Arc arc1 = new Entering_Arc(3, place, transition);
-    	Entering_Arc arc2 = new Entering_Arc(1, place, transition);
+    public void testIsFirableFalseDoubleArc() { //T2
+    	Place place1 = new Place(2, new LinkedList<Arc>());
+    	Place place2 = new Place(1, new LinkedList<Arc>());
+
+    	Entering_Arc arc1 = new Entering_Arc(3, place1, transition);
+    	Entering_Arc arc2 = new Entering_Arc(1, place2, transition);
         enteringList.add(arc1);
         enteringList.add(arc2);
         assertFalse(transition.is_firable());
     }
 
     @Test
-    public void testFireSuccess() throws NotFirableTransitionException {
+    public void testFireSuccess() throws NotFirableTransitionException { //C
         Place enteringPlace = new Place(2, new LinkedList<Arc>());
         Place exitingPlace = new Place(1, new LinkedList<Arc>());
         Entering_Arc arc1 = new Entering_Arc(1, enteringPlace, transition);
@@ -105,5 +110,44 @@ public class TransitionTest extends TestCase {
         }
 
         ;
+    }
+    @Test
+    public void testFireEmptying() throws NotFirableTransitionException { //RFF
+        Place enteringPlace = new Place(2, new LinkedList<Arc>());
+        Entering_Arc arc1 = new Emptying_Arc(1, enteringPlace, transition);
+        transition.add_enteringArc(arc1);
+
+
+        transition.fire();
+
+        assertEquals(0, enteringPlace.get_tokens_nb());
+    }
+    
+    public void testFireDoubleArc() throws NotFirableTransitionException { //DEE
+        Place Place1 = new Place(3, new LinkedList<Arc>());
+        Place Place2 = new Place(4, new LinkedList<Arc>());
+        Entering_Arc arc1 = new Entering_Arc(2, Place1, transition);
+        Entering_Arc arc2 = new Entering_Arc(1, Place2, transition);
+        transition.add_enteringArc(arc1);
+        transition.add_enteringArc(arc2);
+
+        transition.fire();
+
+        assertEquals(1, Place1.get_tokens_nb());
+        assertEquals(3, Place2.get_tokens_nb());
+    }
+    
+    public void testDoubleArcSpeciaux() throws NotFirableTransitionException { //DZV
+        Place Place1 = new Place(0, new LinkedList<Arc>());
+        Place Place2 = new Place(5, new LinkedList<Arc>());
+        Zero_Arc arc1 = new Zero_Arc(0, Place1, transition);
+        Emptying_Arc arc2 = new Emptying_Arc(1, Place2, transition);
+        transition.add_enteringArc(arc1);
+        transition.add_enteringArc(arc2);
+
+        transition.fire();
+
+        assertEquals(0, Place1.get_tokens_nb());
+        assertEquals(0, Place2.get_tokens_nb());
     }
 }	

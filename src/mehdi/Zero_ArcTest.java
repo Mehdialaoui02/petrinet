@@ -23,7 +23,7 @@ class Zero_ArcTest {
     }
 
     @Test
-    public void testIsExecutableWhenExecutable() {
+    public void testIsExecutableWhenExecutable() { //RRR
         assertTrue(zeroArc.is_executable());
     }
 

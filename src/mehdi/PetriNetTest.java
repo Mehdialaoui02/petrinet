@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 class PetriNetTest {
 
@@ -51,7 +50,7 @@ class PetriNetTest {
     }
 
     @Test
-    public void testFire_firable_transition() throws NotFirableTransitionException {
+    public void testFire_firable_transition() throws NotFirableTransitionException { //B
     	
     	transitionsList = new LinkedList<Transition>();
         placesList = new LinkedList<Place>();

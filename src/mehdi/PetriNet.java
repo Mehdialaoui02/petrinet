@@ -3,99 +3,138 @@ package mehdi;
 import java.util.LinkedList;
 
 /**
- * La classe PetriNet permet de gérer le réseau de petri. Elle permet de créer toute les parties du réseau.
+ * La classe PetriNet permet de gérer un réseau de Petri. Elle facilite la création
+ * et la gestion des éléments du réseau tels que les transitions, les places et les arcs.
  */
 public class PetriNet {
 	
-	private LinkedList<Transition> transitionsList; 
-	private LinkedList<Place> placesList;
-	private LinkedList<Arc> arclist;
+    private LinkedList<Transition> transitionsList; 
+    private LinkedList<Place> placesList;
+    private LinkedList<Arc> arclist;
 	
-	/**
-	 * Consrteucteur du réseau de petri
-	 * @param transitionsList : Liste des transitions présentent dans le réseau. 
-	 * @param placeList : Liste des places présentent dans le réseau.
-	 * @param arclist 
-	 */
-	public PetriNet(LinkedList<Transition> transitionsList, LinkedList<Place> placeList, LinkedList<Arc> arclist) {
-		this.transitionsList = transitionsList;
-		this.placesList = placeList;
-		this.arclist = arclist;
-	}
+    /**
+     * Constructeur du réseau de Petri.
+     *
+     * @param transitionsList  Liste des transitions présentes dans le réseau.
+     * @param placeList        Liste des places présentes dans le réseau.
+     * @param arclist          Liste des arcs présents dans le réseau.
+     */
+    public PetriNet(LinkedList<Transition> transitionsList, LinkedList<Place> placeList, LinkedList<Arc> arclist) {
+        this.transitionsList = transitionsList;
+        this.placesList = placeList;
+        this.arclist = arclist;
+    }
 	
-	/**
-	 * Montre toutes les transitions tirables dans le réseau de petri
-	 */
-	public LinkedList<Transition> firable_transitions() {
-		LinkedList<Transition> firableTransitions = new LinkedList<Transition>();
-		for (Transition t : this.transitionsList) {
-			if (t.is_firable()) {
-				firableTransitions.add(t);
-			}
+    /**
+     * Retourne la liste des transitions tirables dans le réseau de Petri.
+     *
+     * @return Liste des transitions tirables.
+     */
+    public LinkedList<Transition> firable_transitions() {
+        LinkedList<Transition> firableTransitions = new LinkedList<Transition>();
+        for (Transition t : this.transitionsList) {
+            if (t.is_firable()) {
+                firableTransitions.add(t);
+            }
         }
-		return firableTransitions;
-	}
+        return firableTransitions;
+    }
 	
-	/**
-	 * Tire une transition
-	 * @param t : Transition à tirer
-	 * @throws NotFirableTransitionException 
-	 */
-	public void fire(Transition t) throws NotFirableTransitionException {
-		t.fire();	
-	}
+    /**
+     * Tire une transition spécifiée.
+     *
+     * @param t Transition à tirer.
+     * @throws NotFirableTransitionException Si la transition n'est pas tirable..
+     */
+    public void fire(Transition t) throws NotFirableTransitionException {
+        t.fire();	
+    }
+	
+    /**
+     * Ajoute une transition au réseau de Petri.
+     *
+     * @param t Transition à ajouter.
+     */
+    public void add_transition(Transition t) {
+        this.transitionsList.addLast(t);
+    }
+	
+    /**
+     * Supprime une transition du réseau de Petri.
+     *
+     * @param transition Transition à supprimer.
+     */
+    public void remove_transition(Transition transition) {
+        this.transitionsList.remove(transition);
+    }
+	
+    /**
+     * Ajoute un arc entrant au réseau de Petri.
+     *
+     * @param w Poids de l'arc.
+     * @param p Place connectée par l'arc.
+     * @param t Transition connectée par l'arc.
+     */
+    public void add_enteringArc(int w, Place p, Transition t) {
+        Entering_Arc arc = new Entering_Arc(w, p, t);
+        t.add_enteringArc(arc);
+        arclist.add(arc);
+    }
 		
+    /**
+     * Ajoute un arc sortant au réseau de Petri.
+     *
+     * @param w Poids de l'arc.
+     * @param p Place connectée par l'arc.
+     * @param t Transition connectée par l'arc.
+     */
+    public void add_exitingArc(int w, Place p, Transition t) {
+        Exiting_Arc arc = new Exiting_Arc(w, p, t);
+        t.add_exitingArc(arc);	
+        arclist.add(arc);
+    }
 	
-	/**
-	 * Crée une transition dans le réseau de petri
-	 * @param exiting_ArcList : Liste des arcs sortants de la transition.
-	 * @param entering_ArcList : Liste des arcs entrants dans la transition
-	 */
-	public void add_transition(Transition t) {
-		this.transitionsList.addLast(t);
-	}
+    /**
+     * Ajoute un arc avec un poids nul au réseau de Petri.
+     *
+     * @param w Poids de l'arc (poids nul).
+     * @param p Place connectée par l'arc.
+     * @param t Transition connectée par l'arc.
+     */
+    public void add_zeroArc(int w, Place p, Transition t) {
+        Zero_Arc arc = new Zero_Arc(w, p, t);
+        t.add_enteringArc(arc);
+        arclist.add(arc);
+    }
 	
-	/**
-	 * Enlève une transition du réseau de petri
-	 * @param transition : Transition à enlever.
-	 */
-	public void remove_transition(Transition transition) {
-		this.transitionsList.remove(transition);
-	}
-	
-	public void add_enteringArc(int w, Place p, Transition t) {
-		Entering_Arc arc = new Entering_Arc(w,p,t);
-		t.add_enteringArc(arc);
-		arclist.add(arc);
-	}
-		
-	public void add_exitingArc(int w, Place p, Transition t) {
-		Exiting_Arc arc = new Exiting_Arc(w,p,t);
-		t.add_exitingArc(arc);	
-		arclist.add(arc);
-	}
-	
-	public void add_zeroArc(int w, Place p, Transition t) {
-		Zero_Arc arc = new Zero_Arc(w,p,t);
-		t.add_enteringArc(arc);
-		arclist.add(arc);
-	}
-	
-	public void add_emptyingArc(int w, Place p, Transition t) {
-		Emptying_Arc arc = new Emptying_Arc(w,p,t);
-		t.add_enteringArc(arc);
-		arclist.add(arc);
-	}
-	
+    /**
+     * Ajoute un arc de vidage au réseau de Petri.
+     *
+     * @param w Poids de l'arc.
+     * @param p Place connectée par l'arc.
+     * @param t Transition connectée par l'arc.
+     */
+    public void add_emptyingArc(int w, Place p, Transition t) {
+        Emptying_Arc arc = new Emptying_Arc(w, p, t);
+        t.add_enteringArc(arc);
+        arclist.add(arc);
+    }
 
-	public LinkedList<Place> getPlacesList() {
-		return placesList;
-	}
+    /**
+     * Retourne la liste des places du réseau de Petri.
+     *
+     * @return Liste des places.
+     */
+    public LinkedList<Place> getPlacesList() {
+        return placesList;
+    }
 
-	public LinkedList<Arc> getArclist() {
-		return arclist;
-	}
-	
-
-
+    /**
+     * Retourne la liste des arcs du réseau de Petri.
+     *
+     * @return Liste des arcs.
+     */
+    public LinkedList<Arc> getArclist() {
+        return arclist;
+    }
 }

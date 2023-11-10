@@ -22,23 +22,23 @@ class ArcTest {
 
     @Test
     public void testGetWeight() {
-        assertEquals(2, arc.get_Weight());
+        assertEquals(2, arc.getWeight());
     }
 
     @Test
     public void testGetPlace() {
-        assertEquals(place, arc.get_Place());
+        assertEquals(place, arc.getPlace());
     }
 
     @Test
     public void testGetTransition() {
-        assertEquals(transition, arc.get_Transition());
+        assertEquals(transition, arc.getTransition());
     }
 
     @Test
     public void testSetWeight() {
-        arc.set_weight(3);
-        assertEquals(3, arc.get_Weight());
+        arc.setWeight(3);
+        assertEquals(3, arc.getWeight());
     }
 
     @Test
