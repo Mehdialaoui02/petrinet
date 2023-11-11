@@ -1,14 +1,14 @@
 package mehdi;
 
 /**
- * La classe Entering_Arc représente une classe spécialisée d'arc d'entrée
+ * La classe EnteringArc représente une classe spécialisée d'arc d'entrée
  * dans un réseau de Petri. Un arc d'entrée est utilisé pour ajouter un certain nombre
  * de jetons à un lieu (Place) lors de l'exécution.
  * 
  * Elle hérite de la classe {@link Arc} et implémente les méthodes abstraites
  * nécessaires pour définir le comportement spécifique de l'arc d'entrée.
  */
-public class Entering_Arc extends Arc {
+public class EnteringArc extends Arc {
 
     /**
      * Constructeur de l'arc d'entrée avec le poids spécifié, le lieu et la transition.
@@ -17,7 +17,7 @@ public class Entering_Arc extends Arc {
      * @param place       le lieu connecté par l'arc.
      * @param transition  la transition connectée par l'arc.
      */
-    public Entering_Arc(int weight, Place place, Transition transition) {
+    public EnteringArc(int weight, Place place, Transition transition) {
         super(weight, place, transition);
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class Entering_Arc extends Arc {
      *
      * @return true} si c'est un arc d'entrée, sinon false.
      */
-    public boolean is_entering() {
+    public boolean isEntering() {
         return true;
     }
 
@@ -36,7 +36,7 @@ public class Entering_Arc extends Arc {
      *
      * @return false car il s'agit d'un arc d'entrée.
      */
-    public boolean is_exiting() {
+    public boolean isExiting() {
         return false;
     }
 
@@ -45,7 +45,7 @@ public class Entering_Arc extends Arc {
      */
     @Override
     public void execute() {
-        this.place.remove_tokens(this.weight);
+        this.place.removeTokens(this.weight);
     }
 
     /**
@@ -54,7 +54,7 @@ public class Entering_Arc extends Arc {
      *
      * @return true si l'arc est exécutable, sinon false.
      */
-    public boolean is_executable() {
-        return this.place.get_tokens_nb() >= this.weight;
+    public boolean isExecutable() {
+        return this.place.getTokenNumber() >= this.weight;
     }
 }

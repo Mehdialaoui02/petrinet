@@ -8,9 +8,9 @@ import java.util.LinkedList;
  */
 public class PetriNet {
 	
-    private LinkedList<Transition> transitionsList; 
-    private LinkedList<Place> placesList;
-    private LinkedList<Arc> arclist;
+    private LinkedList<Transition> TransitionList; 
+    private LinkedList<Place> PlaceList;
+    private LinkedList<Arc> ArcList;
 	
     /**
      * Constructeur du réseau de Petri.
@@ -19,10 +19,10 @@ public class PetriNet {
      * @param placeList        Liste des places présentes dans le réseau.
      * @param arclist          Liste des arcs présents dans le réseau.
      */
-    public PetriNet(LinkedList<Transition> transitionsList, LinkedList<Place> placeList, LinkedList<Arc> arclist) {
-        this.transitionsList = transitionsList;
-        this.placesList = placeList;
-        this.arclist = arclist;
+    public PetriNet(LinkedList<Transition> TransitionList, LinkedList<Place> PlaceList, LinkedList<Arc> ArcList) {
+        this.TransitionList = TransitionList;
+        this.PlaceList = PlaceList;
+        this.ArcList = ArcList;
     }
 	
     /**
@@ -30,10 +30,10 @@ public class PetriNet {
      *
      * @return Liste des transitions tirables.
      */
-    public LinkedList<Transition> firable_transitions() {
+    public LinkedList<Transition> firableTransitions() {
         LinkedList<Transition> firableTransitions = new LinkedList<Transition>();
-        for (Transition t : this.transitionsList) {
-            if (t.is_firable()) {
+        for (Transition t : this.TransitionList) {
+            if (t.isFirable()) {
                 firableTransitions.add(t);
             }
         }
@@ -55,8 +55,8 @@ public class PetriNet {
      *
      * @param t Transition à ajouter.
      */
-    public void add_transition(Transition t) {
-        this.transitionsList.addLast(t);
+    public void addTransition(Transition t) {
+        this.TransitionList.addLast(t);
     }
 	
     /**
@@ -64,8 +64,8 @@ public class PetriNet {
      *
      * @param transition Transition à supprimer.
      */
-    public void remove_transition(Transition transition) {
-        this.transitionsList.remove(transition);
+    public void removeTransition(Transition transition) {
+        this.TransitionList.remove(transition);
     }
 	
     /**
@@ -75,10 +75,10 @@ public class PetriNet {
      * @param p Place connectée par l'arc.
      * @param t Transition connectée par l'arc.
      */
-    public void add_enteringArc(int w, Place p, Transition t) {
-        Entering_Arc arc = new Entering_Arc(w, p, t);
-        t.add_enteringArc(arc);
-        arclist.add(arc);
+    public void addEnteringArc(int w, Place p, Transition t) {
+        EnteringArc arc = new EnteringArc(w, p, t);
+        t.addEnteringArc(arc);
+        ArcList.add(arc);
     }
 		
     /**
@@ -88,10 +88,10 @@ public class PetriNet {
      * @param p Place connectée par l'arc.
      * @param t Transition connectée par l'arc.
      */
-    public void add_exitingArc(int w, Place p, Transition t) {
-        Exiting_Arc arc = new Exiting_Arc(w, p, t);
-        t.add_exitingArc(arc);	
-        arclist.add(arc);
+    public void addExitingArc(int w, Place p, Transition t) {
+        ExitingArc arc = new ExitingArc(w, p, t);
+        t.addExitingArc(arc);	
+        ArcList.add(arc);
     }
 	
     /**
@@ -101,10 +101,10 @@ public class PetriNet {
      * @param p Place connectée par l'arc.
      * @param t Transition connectée par l'arc.
      */
-    public void add_zeroArc(int w, Place p, Transition t) {
-        Zero_Arc arc = new Zero_Arc(w, p, t);
-        t.add_enteringArc(arc);
-        arclist.add(arc);
+    public void addZeroArc(int w, Place p, Transition t) {
+        ZeroArc arc = new ZeroArc(w, p, t);
+        t.addEnteringArc(arc);
+        ArcList.add(arc);
     }
 	
     /**
@@ -114,10 +114,10 @@ public class PetriNet {
      * @param p Place connectée par l'arc.
      * @param t Transition connectée par l'arc.
      */
-    public void add_emptyingArc(int w, Place p, Transition t) {
-        Emptying_Arc arc = new Emptying_Arc(w, p, t);
-        t.add_enteringArc(arc);
-        arclist.add(arc);
+    public void addEmptyingArc(int w, Place p, Transition t) {
+        EmptyingArc arc = new EmptyingArc(w, p, t);
+        t.addEnteringArc(arc);
+        ArcList.add(arc);
     }
 
     /**
@@ -126,7 +126,7 @@ public class PetriNet {
      * @return Liste des places.
      */
     public LinkedList<Place> getPlacesList() {
-        return placesList;
+        return PlaceList;
     }
 
     /**
@@ -135,6 +135,6 @@ public class PetriNet {
      * @return Liste des arcs.
      */
     public LinkedList<Arc> getArclist() {
-        return arclist;
+        return ArcList;
     }
 }

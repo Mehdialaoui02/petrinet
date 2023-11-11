@@ -1,14 +1,14 @@
 package mehdi;
 
 /**
- * La classe Exiting_Arc représente une classe spécialisée d'arc de sortie
+ * La classe ExitingArc représente une classe spécialisée d'arc de sortie
  * dans un réseau de Petri. Un arc de sortie est utilisé pour retirer un certain nombre
  * de jetons d'un lieu (Place) lors de l'exécution.
  * 
  * Elle hérite de la classe Arc et implémente les méthodes abstraites
  * nécessaires pour définir le comportement spécifique de l'arc de sortie.
  */
-public class Exiting_Arc extends Arc {
+public class ExitingArc extends Arc {
 
     /**
      * Constructeur de l'arc de sortie avec le poids spécifié, le lieu et la transition.
@@ -17,7 +17,7 @@ public class Exiting_Arc extends Arc {
      * @param place       le lieu connecté par l'arc.
      * @param transition  la transition connectée par l'arc.
      */
-    public Exiting_Arc(int weight, Place place, Transition transition) {
+    public ExitingArc(int weight, Place place, Transition transition) {
         super(weight, place, transition);
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class Exiting_Arc extends Arc {
      *
      * @return false car il s'agit d'un arc de sortie.
      */
-    public boolean is_entering() {
+    public boolean isEntering() {
         return false;
     }
 
@@ -36,7 +36,7 @@ public class Exiting_Arc extends Arc {
      *
      * @return true si c'est un arc de sortie, sinon false.
      */
-    public boolean is_exiting() {
+    public boolean isExiting() {
         return true;
     }
 
@@ -47,7 +47,7 @@ public class Exiting_Arc extends Arc {
     @Override
     public void execute() {
         try {
-            this.place.add_tokens(this.weight);
+            this.place.addTokens(this.weight);
         } catch (NegativeTokenValueException e) {
             // TODO Auto-generated catch block
         }

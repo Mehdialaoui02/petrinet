@@ -1,14 +1,14 @@
 package mehdi;
 
 /**
- * La classe Emptying_Arc} représente une classe spécialisée d'arc de vidage
+ * La classe EmptyingArc} représente une classe spécialisée d'arc de vidage
  * dans un réseau de Petri. Un arc de vidage est utilisé pour vider un lieu (Place)
  * en retirant tous ses jetons lors de l'exécution.
  * 
  * Elle hérite de la classe Entering_arc et implémente les méthodes abstraites
  * nécessaires pour définir le comportement spécifique de l'arc de vidage.
  */
-public class Emptying_Arc extends Entering_Arc {
+public class EmptyingArc extends EnteringArc {
 
     /**
      * Constructeur de l'arc de vidage avec le poids spécifié, le lieu et la transition.
@@ -17,7 +17,7 @@ public class Emptying_Arc extends Entering_Arc {
      * @param place       le lieu connecté par l'arc.
      * @param transition  la transition connectée par l'arc.
      */
-    public Emptying_Arc(int weight, Place place, Transition transition) {
+    public EmptyingArc(int weight, Place place, Transition transition) {
         super(weight, place, transition);
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class Emptying_Arc extends Entering_Arc {
      */
     @Override
     public void execute() {
-        this.place.remove_all_tokens();
+        this.place.removeAllTokens();
     }
 
     /**
@@ -37,8 +37,8 @@ public class Emptying_Arc extends Entering_Arc {
      * @return true si l'arc est exécutable, sinon false..
      */
     @Override
-    public boolean is_executable() {
-        return this.place.get_tokens_nb() > 0;
+    public boolean isExecutable() {
+        return this.place.getTokenNumber() > 0;
     }
 }
 

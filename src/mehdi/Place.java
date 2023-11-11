@@ -8,18 +8,18 @@ import java.util.LinkedList;
  */
 public class Place {
 	
-    private int tokens_number;
-    private LinkedList<Arc> arcsList;
+    private int tokenNumber;
+    private LinkedList<Arc> ArcList;
 	
     /**
      * Constructeur de la place avec le nombre initial de jetons et la liste des arcs connectés.
      *
-     * @param tokens_number  Le nombre initial de jetons dans la place.
+     * @param tokensNumber  Le nombre initial de jetons dans la place.
      * @param arcsList       Liste des arcs connectés à la place.
      */
-    public Place(int tokens_number, LinkedList<Arc> arcsList) {
-        this.tokens_number = tokens_number;
-        this.arcsList = arcsList;
+    public Place(int tokenNumber, LinkedList<Arc> ArcList) {
+        this.tokenNumber = tokenNumber;
+        this.ArcList = ArcList;
     }
 	
     /**
@@ -27,8 +27,8 @@ public class Place {
      *
      * @return Le nombre de jetons dans la place.
      */
-    public int get_tokens_nb() {
-        return this.tokens_number;
+    public int getTokenNumber() {
+        return this.tokenNumber;
     }
 	
     /**
@@ -37,9 +37,9 @@ public class Place {
      * @param n Le nouveau nombre de jetons.
      * @throws NegativeTokenValueException Si la tentative de définir un nombre négatif de jetons est faite.
      */
-    public void set_tokens_nb(int n) throws NegativeTokenValueException {
+    public void setTokenNumber(int n) throws NegativeTokenValueException {
         if (n >= 0) {
-            this.tokens_number = n;
+            this.tokenNumber = n;
         } else {
             throw new NegativeTokenValueException();
         }
@@ -50,8 +50,8 @@ public class Place {
      *
      * @return {@code true} si la place est vide, sinon {@code false}.
      */
-    public boolean is_empty() {
-        return this.tokens_number == 0;
+    public boolean isEmpty() {
+        return this.tokenNumber == 0;
     }
 	
     /**
@@ -59,8 +59,8 @@ public class Place {
      *
      * @param arc L'arc à ajouter.
      */
-    public void add_arc(Arc arc) {
-        this.arcsList.add(arc);
+    public void addArc(Arc arc) {
+        this.ArcList.add(arc);
     }
 	
     /**
@@ -68,8 +68,8 @@ public class Place {
      *
      * @return Liste des arcs connectés à la place.
      */
-    public LinkedList<Arc> get_arcList() {
-        return this.arcsList;
+    public LinkedList<Arc> getArcList() {
+        return this.ArcList;
     }
 	
     /**
@@ -78,9 +78,9 @@ public class Place {
      * @param number Le nombre de jetons à ajouter.
      * @throws NegativeTokenValueException Si la tentative d'ajout d'un nombre négatif de jetons est faite.
      */
-    public void add_tokens(int number) throws NegativeTokenValueException { 
-        if (number + this.tokens_number >= 0) {
-            this.tokens_number += number;
+    public void addTokens(int number) throws NegativeTokenValueException { 
+        if (number + this.tokenNumber >= 0) {
+            this.tokenNumber += number;
         } else {
             throw new NegativeTokenValueException();
         }
@@ -91,19 +91,19 @@ public class Place {
      *
      * @param number Le nombre de jetons à retirer.
      */
-    public void remove_tokens(int number) {
-        if (this.tokens_number >= number) {
-            this.tokens_number -= number;
+    public void removeTokens(int number) {
+        if (this.tokenNumber >= number) {
+            this.tokenNumber -= number;
         } else {
-            this.tokens_number = 0;
+            this.tokenNumber = 0;
         }
     }
 	
     /**
      * Retire tous les jetons de la place.
      */
-    public void remove_all_tokens() {
-        this.tokens_number = 0;
+    public void removeAllTokens() {
+        this.tokenNumber = 0;
     }
 }
 

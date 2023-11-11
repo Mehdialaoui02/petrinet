@@ -10,8 +10,8 @@ import java.util.LinkedList;
  */
 public class Transition {
     
-    private LinkedList<Arc> exiting_ArcsList;
-    private LinkedList<Entering_Arc> entering_ArcsList;
+    private LinkedList<Arc> ExitingArcList;
+    private LinkedList<EnteringArc> EnteringArcList;
     
     /**
      * Constructeur de la transition avec les listes d'arcs entrants et sortants.
@@ -19,9 +19,9 @@ public class Transition {
      * @param exiting   Liste des arcs sortants de la transition.
      * @param entering  Liste des arcs entrants dans la transition.
      */
-    public Transition(LinkedList<Arc> exiting, LinkedList<Entering_Arc> entering) {
-        this.exiting_ArcsList = exiting;
-        this.entering_ArcsList = entering;
+    public Transition(LinkedList<Arc> ExitingArcList, LinkedList<EnteringArc> EnteringArcList) {
+        this.ExitingArcList = ExitingArcList;
+        this.EnteringArcList = EnteringArcList;
     }
         
     /**
@@ -29,8 +29,8 @@ public class Transition {
      *
      * @return Liste des arcs entrants.
      */
-    public LinkedList<Entering_Arc> get_enteringList() {
-        return this.entering_ArcsList;
+    public LinkedList<EnteringArc> getEnteringArcList() {
+        return this.EnteringArcList;
     }
     
     /**
@@ -38,8 +38,8 @@ public class Transition {
      *
      * @return Liste des arcs sortants.
      */
-    public LinkedList<Arc> get_exitingList() {
-        return this.exiting_ArcsList;
+    public LinkedList<Arc> getExitingArcList() {
+        return this.ExitingArcList;
     }
     
     /**
@@ -47,9 +47,9 @@ public class Transition {
      *
      * @return true si la transition est tirable, sinon false.
      */
-    public boolean is_firable() {
-        for (Entering_Arc arc : this.entering_ArcsList) {
-            if (!arc.is_executable()) {
+    public boolean isFirable() {
+        for (EnteringArc arc : this.EnteringArcList) {
+            if (!arc.isExecutable()) {
                 return false; 
             }
         }
@@ -61,8 +61,8 @@ public class Transition {
      *
      * @param arc L'arc sortant à ajouter.
      */
-    public void add_exitingArc(Arc arc) {
-        this.exiting_ArcsList.add(arc);
+    public void addExitingArc(Arc arc) {
+        this.ExitingArcList.add(arc);
     }
     
     /**
@@ -70,8 +70,8 @@ public class Transition {
      *
      * @param arc L'arc entrant à ajouter.
      */
-    public void add_enteringArc(Entering_Arc arc) {
-        this.entering_ArcsList.add(arc);
+    public void addEnteringArc(EnteringArc arc) {
+        this.EnteringArcList.add(arc);
     }
     
     /**
@@ -80,11 +80,11 @@ public class Transition {
      * @throws NotFirableTransitionException Si la transition n'est pas tirable.
      */
     public void fire() throws NotFirableTransitionException {
-        if (this.is_firable()) {
-            for (Arc arc : this.get_enteringList()) {
+        if (this.isFirable()) {
+            for (Arc arc : this.getEnteringArcList()) {
                 arc.execute();
             }
-            for (Arc arc : this.get_exitingList()) {
+            for (Arc arc : this.getExitingArcList()) {
                 arc.execute();
             }
             System.out.println("Tirage fait avec succès");
