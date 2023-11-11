@@ -4,14 +4,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-import mehdi.Entering_Arc;
+import mehdi.EnteringArc;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
 import mehdi.Transition;
 
-class Entering_ArcTest {
+class EnteringArcTest {
 
-	private Entering_Arc enteringArc;
+	private EnteringArc enteringArc;
     private Place place;
     private Transition transition;
 
@@ -19,46 +19,46 @@ class Entering_ArcTest {
     public void setUp() {
         place = new Place(3, null); // Initialize with 3 tokens
         transition = new Transition(null, null);
-        enteringArc = new Entering_Arc(2, place, transition);
+        enteringArc = new EnteringArc(2, place, transition);
     }
 
     @Test
     public void testIsEntering() {
-        assertTrue(enteringArc.is_entering());
+        assertTrue(enteringArc.isEntering());
     }
 
     @Test
     public void testIsExiting() {
-        assertFalse(enteringArc.is_exiting());
+        assertFalse(enteringArc.isExiting());
     }
 
     @Test
     public void testIsExecutable() {
-        assertTrue(enteringArc.is_executable());
+        assertTrue(enteringArc.isExecutable());
     }
 
     @Test
     public void testExecute() {
         enteringArc.execute();
-        assertEquals(1, place.get_tokens_nb());
+        assertEquals(1, place.getTokenNumber());
     }
 
     @Test
     public void testExecuteNotEnoughTokens() throws NegativeTokenValueException {
-        place.set_tokens_nb(1);
+        place.setTokenNumber(1);
         enteringArc.execute();
-        assertEquals(0, place.get_tokens_nb());
+        assertEquals(0, place.getTokenNumber());
     }
     
     @Test
     public void testIsExecutableWhenExecutable() {
-        assertTrue(enteringArc.is_executable());
+        assertTrue(enteringArc.isExecutable());
     }
 
     @Test
     public void testIsExecutableWhenNotExecutable() throws NegativeTokenValueException {
-        place.set_tokens_nb(1); 
-        assertFalse(enteringArc.is_executable());
+        place.setTokenNumber(1); 
+        assertFalse(enteringArc.isExecutable());
     }
 
 }

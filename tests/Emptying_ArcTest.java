@@ -4,35 +4,35 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-import mehdi.Emptying_Arc;
+import mehdi.EmptyingArc;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
 
 class Emptying_ArcTest {
 
-	 	private Emptying_Arc emptyingArc;
+	 	private EmptyingArc emptyingArc;
 	    private Place place;
 
 	    @BeforeEach
 	    public void setUp() {
 	        place = new Place(3, null); 
-	        emptyingArc = new Emptying_Arc(1, place, null); //CAA
+	        emptyingArc = new EmptyingArc(1, place, null); //CAA
 	    }
 
 	    @Test
 	    public void testExecute() {
 	        emptyingArc.execute();
-	        assertEquals(0, place.get_tokens_nb());
+	        assertEquals(0, place.getTokenNumber());
 	    }
 
 	    @Test
 	    public void testIsExecutableWhenExecutable() {
-	        assertTrue(emptyingArc.is_executable());
+	        assertTrue(emptyingArc.isExecutable());
 	    }
 
 	    @Test
 	    public void testIsExecutableWhenNotExecutable() throws NegativeTokenValueException {
-	        place.set_tokens_nb(0); 
-	        assertFalse(emptyingArc.is_executable());
+	        place.setTokenNumber(0); 
+	        assertFalse(emptyingArc.isExecutable());
 	    }
 }

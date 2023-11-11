@@ -5,34 +5,34 @@ import org.junit.jupiter.api.Test;
 
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
-import mehdi.Zero_Arc;
+import mehdi.ZeroArc;
 
-class Zero_ArcTest {
+class ZeroArcTest {
 
-	private Zero_Arc zeroArc;
+	private ZeroArc zeroArc;
     private Place place;
 
     @BeforeEach
     public void setUp() {
         place = new Place(0, null);
-        zeroArc = new Zero_Arc(0, place, null); 
+        zeroArc = new ZeroArc(0, place, null); 
     }
 
     @Test
     public void testExecute() {
         zeroArc.execute();
-        assertEquals(0, place.get_tokens_nb());
+        assertEquals(0, place.getTokenNumber());
     }
 
     @Test
     public void testIsExecutableWhenExecutable() { //RRR
-        assertTrue(zeroArc.is_executable());
+        assertTrue(zeroArc.isExecutable());
     }
 
     @Test
     public void testIsExecutableWhenNotExecutable() throws NegativeTokenValueException {
-        place.set_tokens_nb(1); 
-        assertFalse(zeroArc.is_executable());
+        place.setTokenNumber(1); 
+        assertFalse(zeroArc.isExecutable());
     }
 
 }
