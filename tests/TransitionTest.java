@@ -1,11 +1,18 @@
-package mehdi;
-
 import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+
+import mehdi.Arc;
+import mehdi.Emptying_Arc;
+import mehdi.Entering_Arc;
+import mehdi.Exiting_Arc;
+import mehdi.NotFirableTransitionException;
+import mehdi.Place;
+import mehdi.Transition;
+import mehdi.Zero_Arc;
 
 public class TransitionTest extends TestCase {
 	

@@ -1,9 +1,12 @@
-package mehdi;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
+import mehdi.Emptying_Arc;
+import mehdi.NegativeTokenValueException;
+import mehdi.Place;
 
 class Emptying_ArcTest {
 

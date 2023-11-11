@@ -1,11 +1,12 @@
-package mehdi;
-
 import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.LinkedList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import mehdi.Arc;
+import mehdi.Entering_Arc;
+import mehdi.Place;
+import mehdi.Transition;
 
 class ArcTest {
 

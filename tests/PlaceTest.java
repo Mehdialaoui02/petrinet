@@ -1,10 +1,15 @@
-package mehdi;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
+
+
+import mehdi.Arc;
+import mehdi.Entering_Arc;
+import mehdi.NegativeTokenValueException;
+import mehdi.Place;
+import mehdi.Transition;
 
 class PlaceTest {
 

@@ -1,9 +1,10 @@
-package mehdi;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import mehdi.Exiting_Arc;
+import mehdi.Place;
 
 class Exiting_ArcTest {
 

@@ -1,9 +1,13 @@
-package mehdi;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
+import mehdi.Entering_Arc;
+import mehdi.NegativeTokenValueException;
+import mehdi.Place;
+import mehdi.Transition;
 
 class Entering_ArcTest {
 

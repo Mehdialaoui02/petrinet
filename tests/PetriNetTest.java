@@ -1,10 +1,17 @@
-package mehdi;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.LinkedList;
 
 import org.junit.jupiter.api.Test;
+
+
+import mehdi.Arc;
+import mehdi.Entering_Arc;
+import mehdi.Exiting_Arc;
+import mehdi.NotFirableTransitionException;
+import mehdi.PetriNet;
+import mehdi.Place;
+import mehdi.Transition;
 
 class PetriNetTest {
 
