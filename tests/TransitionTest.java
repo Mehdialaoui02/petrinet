@@ -67,7 +67,7 @@ public class TransitionTest extends TestCase {
         assertFalse(transition.isFirable());
     }
     
-    public void testIsFirableFalseZero_Emptying() { //T3
+    public void testIsFirableFalseZeroEmptying() { //T3
     	Place place1 = new Place(3, new LinkedList<Arc>());
     	Place place2 = new Place(3, new LinkedList<Arc>());
 
