@@ -12,25 +12,25 @@ class ExitingArcTest {
 	private Place place;
 
 	@BeforeEach
-    public void setUp() {
-        place = new Place(0,null); 
-        exitingArc = new ExitingArc(2, place, null); 
-    }
+	public void setUp() {
+		place = new Place(0,null); 
+		exitingArc = new ExitingArc(2, place, null); 
+	}
 
-    @Test
-    public void testIsEntering() {
-        assertFalse(exitingArc.isEntering());
-    }
+	@Test
+	public void testIsEntering() {
+		assertFalse(exitingArc.isEntering());
+	}
 
-    @Test
-    public void testIsExiting() {
-        assertTrue(exitingArc.isExiting());
-    }
+	@Test
+	public void testIsExiting() {
+		assertTrue(exitingArc.isExiting());
+	}
 
-    @Test
-    public void testExecute() {
-        exitingArc.execute();
-        assertEquals(2, place.getTokenNumber());
-    }
+	@Test
+	public void testExecute() {
+		exitingArc.execute();
+		assertEquals(2, place.getTokenNumber());
+	}
 
 }
