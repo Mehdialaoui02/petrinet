@@ -31,6 +31,7 @@ public abstract class Arc {
 		this.place = place;
 		this.weight = weight;
 		this.transition = transition;
+		this.place.addArc(this);
 	}
 
 	/**

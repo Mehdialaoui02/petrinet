@@ -1,11 +1,16 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
+import mehdi.Transition;
 import mehdi.ZeroArc;
+import mehdi.Arc;
+import mehdi.EnteringArc;
 
 /**
  * Classe de test pour la classe ZeroArc.
@@ -14,14 +19,16 @@ class ZeroArcTest {
 
     private ZeroArc zeroArc;
     private Place place;
+    private Transition transition; 
 
     /**
      * Méthode d'initialisation avant chaque test.
      */
     @BeforeEach
     public void setUp() {
-        place = new Place(0, null);
-        zeroArc = new ZeroArc(0, place, null);
+    	transition = new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>());
+        place = new Place(0, new LinkedList<Arc>() );
+        zeroArc = new ZeroArc(0, place, transition );
     }
 
     /**

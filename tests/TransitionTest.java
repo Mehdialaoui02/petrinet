@@ -130,8 +130,6 @@ public class TransitionTest extends TestCase {
         Place exitingPlace = new Place(1, new LinkedList<Arc>());
         EnteringArc arc1 = new EnteringArc(1, enteringPlace, transition);
         Arc arc2 = new ExitingArc(1, exitingPlace, transition);
-        transition.addEnteringArc(arc1);
-        transition.addExitingArc(arc2);
 
         transition.fire();
 
@@ -183,8 +181,6 @@ public class TransitionTest extends TestCase {
         Place Place2 = new Place(4, new LinkedList<Arc>());
         EnteringArc arc1 = new EnteringArc(2, Place1, transition);
         EnteringArc arc2 = new EnteringArc(1, Place2, transition);
-        transition.addEnteringArc(arc1);
-        transition.addEnteringArc(arc2);
 
         transition.fire();
 

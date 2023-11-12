@@ -83,7 +83,6 @@ public class PetriNet {
 	 */
 	public void addEnteringArc(int w, Place p, Transition t) {
 		EnteringArc arc = new EnteringArc(w, p, t);
-		t.addEnteringArc(arc);
 		ArcList.add(arc);
 	}
 
@@ -96,7 +95,6 @@ public class PetriNet {
 	 */
 	public void addExitingArc(int w, Place p, Transition t) {
 		ExitingArc arc = new ExitingArc(w, p, t);
-		t.addExitingArc(arc);	
 		ArcList.add(arc);
 	}
 
@@ -109,7 +107,6 @@ public class PetriNet {
 	 */
 	public void addZeroArc(int w, Place p, Transition t) {
 		ZeroArc arc = new ZeroArc(w, p, t);
-		t.addEnteringArc(arc);
 		ArcList.add(arc);
 	}
 
@@ -122,7 +119,6 @@ public class PetriNet {
 	 */
 	public void addEmptyingArc(int w, Place p, Transition t) {
 		EmptyingArc arc = new EmptyingArc(w, p, t);
-		t.addEnteringArc(arc);
 		ArcList.add(arc);
 	}
 

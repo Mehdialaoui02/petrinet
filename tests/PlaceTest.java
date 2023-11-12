@@ -60,8 +60,7 @@ class PlaceTest {
     @Test
     public void testAddArc() {
         Place place = new Place(5, new LinkedList<Arc>());
-        Arc arc = new EnteringArc(3, place, new Transition(null, null));
-        place.addArc(arc);
+        Arc arc = new EnteringArc(3, place, new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>()));
         assertEquals(1, place.getArcList().size());
     }
 

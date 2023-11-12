@@ -19,6 +19,7 @@ public class ExitingArc extends Arc {
 	 */
 	public ExitingArc(int weight, Place place, Transition transition) {
 		super(weight, place, transition);
+		this.transition.addExitingArc(this);
 		// TODO Auto-generated constructor stub
 	}
 

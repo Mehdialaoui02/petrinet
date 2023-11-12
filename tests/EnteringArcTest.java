@@ -1,9 +1,11 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
+import mehdi.Arc;
 import mehdi.EnteringArc;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
@@ -24,8 +26,8 @@ class EnteringArcTest {
      */
     @BeforeEach
     public void setUp() {
-        place = new Place(3, null); // Initialisé avec 3 jetons
-        transition = new Transition(null, null);
+        place = new Place(3, new LinkedList<Arc>()); // Initialisé avec 3 jetons
+        transition = new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>());
         enteringArc = new EnteringArc(2, place, transition);
     }
 

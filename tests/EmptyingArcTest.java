@@ -3,18 +3,23 @@
  */
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedList;
+
 /**
  * Importation des annotations JUnit pour la configuration des tests.
  */
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import mehdi.Arc;
 /**
  * Importation des classes nécessaires au test.
  */
 import mehdi.EmptyingArc;
+import mehdi.EnteringArc;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
+import mehdi.Transition;
 
 /**
  * Définition de la classe de test pour EmptyingArc.
@@ -26,6 +31,7 @@ class EmptyingArcTest {
      */
     private EmptyingArc emptyingArc;
     private Place place;
+    private Transition transition;
 
     /**
      * Méthode exécutée avant chaque test pour initialiser les objets nécessaires.
@@ -35,11 +41,12 @@ class EmptyingArcTest {
         /**
          * Création d'une place avec 3 jetons (tokens) initiaux.
          */
-        place = new Place(3, null); 
+        place = new Place(3, new LinkedList<Arc>()); 
+        transition = new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>());
         /**
          * Création d'un arc de vidange (EmptyingArc) avec une pondération de 1 et lié à la place créée.
          */
-        emptyingArc = new EmptyingArc(1, place, null); //CAA
+        emptyingArc = new EmptyingArc(1, place, transition); //CAA
     }
 
     /**

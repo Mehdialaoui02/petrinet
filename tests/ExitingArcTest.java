@@ -1,11 +1,16 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import mehdi.Arc;
+import mehdi.EnteringArc;
 import mehdi.ExitingArc;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
+import mehdi.Transition;
 
 
 /**
@@ -15,14 +20,16 @@ class ExitingArcTest {
 
     private ExitingArc exitingArc;
     private Place place;
+    private Transition transition;
 
     /**
      * Méthode d'initialisation avant chaque test.
      */
     @BeforeEach
     public void setUp() {
-        place = new Place(0, null); 
-        exitingArc = new ExitingArc(2, place, null); 
+    	transition = new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>());
+        place = new Place(0, new LinkedList<Arc>()); 
+        exitingArc = new ExitingArc(2, place, transition); 
     }
 
     /**

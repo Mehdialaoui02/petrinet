@@ -19,6 +19,7 @@ public class EnteringArc extends Arc {
 	 */
 	public EnteringArc(int weight, Place place, Transition transition) {
 		super(weight, place, transition);
+		this.transition.addEnteringArc(this);
 		// TODO Auto-generated constructor stub
 	}
 

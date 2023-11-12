@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.LinkedList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,8 +24,8 @@ class ArcTest {
      */
     @BeforeEach
     public void setUp() {
-        place = new Place(1, null);
-        transition = new Transition(null, null);
+        place = new Place(1, new LinkedList<Arc>());
+        transition = new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>());
         arc = new EnteringArc(2, place, transition); // Nous avons utiliser EnteringArc comme instance de la classe Arc car elle est abstraite
     }
 
