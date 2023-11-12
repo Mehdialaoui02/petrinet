@@ -17,6 +17,7 @@ import mehdi.Arc;
  */
 import mehdi.EmptyingArc;
 import mehdi.EnteringArc;
+import mehdi.ExistingArcException;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
 import mehdi.Transition;
@@ -35,9 +36,10 @@ class EmptyingArcTest {
 
     /**
      * Méthode exécutée avant chaque test pour initialiser les objets nécessaires.
+     * @throws ExistingArcException 
      */
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws ExistingArcException {
         /**
          * Création d'une place avec 3 jetons (tokens) initiaux.
          */

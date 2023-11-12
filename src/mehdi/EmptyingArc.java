@@ -16,8 +16,9 @@ public class EmptyingArc extends EnteringArc {
 	 * @param weight      le poids de l'arc.
 	 * @param place       le lieu connecté par l'arc.
 	 * @param transition  la transition connectée par l'arc.
+	 * @throws ExistingArcException 
 	 */
-	public EmptyingArc(int weight, Place place, Transition transition) {
+	public EmptyingArc(int weight, Place place, Transition transition) throws ExistingArcException {
 		super(weight, place, transition);
 		// TODO Auto-generated constructor stub
 	}

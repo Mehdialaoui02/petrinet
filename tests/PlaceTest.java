@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import mehdi.Arc;
 import mehdi.EnteringArc;
+import mehdi.ExistingArcException;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
 import mehdi.Transition;
@@ -56,9 +57,10 @@ class PlaceTest {
 
     /**
      * Test de la méthode addArc() pour vérifier l'ajout d'un arc à la liste des arcs de la place.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddArc() {
+    public void testAddArc() throws ExistingArcException {
         Place place = new Place(5, new LinkedList<Arc>());
         Arc arc = new EnteringArc(3, place, new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>()));
         assertEquals(1, place.getArcList().size());

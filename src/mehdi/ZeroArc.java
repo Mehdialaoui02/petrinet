@@ -16,8 +16,9 @@ public class ZeroArc extends EnteringArc {
 	 * @param weight      Le poids de l'arc (fixé à zéro).
 	 * @param place       Le lieu connecté par l'arc.
 	 * @param transition  La transition connectée par l'arc.
+	 * @throws ExistingArcException 
 	 */
-	public ZeroArc(int weight, Place place, Transition transition) {
+	public ZeroArc(int weight, Place place, Transition transition) throws ExistingArcException {
 		super(0, place, transition); // Le poids est fixé à zéro
 		// TODO Auto-generated constructor stub
 	}

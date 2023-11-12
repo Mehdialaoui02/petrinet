@@ -27,12 +27,19 @@ public abstract class Arc {
 	 * @param place       La place à laquelle l'arc est lié.
 	 * @param transition  La transition à laquelle l'arc est lié.
 	 */
-	public Arc(int weight, Place place, Transition transition) {
-		this.place = place;
-		this.weight = weight;
-		this.transition = transition;
-		this.place.addArc(this);
+	public Arc(int weight, Place place, Transition transition) throws ExistingArcException {
+	    for (Arc arc : place.getArcList()) {
+	        if (arc.getPlace().equals(place) && arc.getTransition().equals(transition)) {
+	            throw new ExistingArcException("Arc already exists for this place and transition");
+	        }
+	    }
+	    
+	    this.place = place;
+	    this.weight = weight;
+	    this.transition = transition;
+	    this.place.addArc(this);
 	}
+
 
 	/**
 	 * Retourne le poids de l'arc.

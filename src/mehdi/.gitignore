@@ -14,3 +14,4 @@
 /Emptying_ArcTest.class
 /NegativeTokenValueException.class
 /NotFirableTransitionException.class
+/ExistingArcException.class

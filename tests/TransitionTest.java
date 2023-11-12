@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 import mehdi.Arc;
 import mehdi.EmptyingArc;
 import mehdi.EnteringArc;
+import mehdi.ExistingArcException;
 import mehdi.ExitingArc;
 import mehdi.NegativeTokenValueException;
 import mehdi.NotFirableTransitionException;
@@ -36,9 +37,10 @@ public class TransitionTest extends TestCase {
 
     /**
      * Test de la méthode addEnteringArc() pour vérifier l'ajout d'une arc d'entrée à la liste d'arcs d'entrée.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddEnteringArc() {
+    public void testAddEnteringArc() throws ExistingArcException {
         EnteringArc arc = new EnteringArc(1, new Place(1, new LinkedList<Arc>()), transition);
         transition.addEnteringArc(arc);
         assertTrue(enteringList.contains(arc));
@@ -46,9 +48,10 @@ public class TransitionTest extends TestCase {
 
     /**
      * Test de la méthode addExitingArc() pour vérifier l'ajout d'une arc de sortie à la liste d'arcs de sortie.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddExitingArc() {
+    public void testAddExitingArc() throws ExistingArcException {
         Arc arc = new EnteringArc(1, new Place(1, new LinkedList<Arc>()), transition);
         transition.addExitingArc(arc);
         assertTrue(exitingList.contains(arc));
@@ -56,9 +59,10 @@ public class TransitionTest extends TestCase {
 
     /**
      * Test de la méthode isFirable() pour vérifier le cas où la transition est tirable.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testIsFirableTrue() {
+    public void testIsFirableTrue() throws ExistingArcException {
         Place place = new Place(1, new LinkedList<Arc>());
         EnteringArc arc1 = new EnteringArc(1, place, transition);
         transition.addEnteringArc(arc1);
@@ -67,9 +71,10 @@ public class TransitionTest extends TestCase {
 
     /**
      * Test de la méthode isFirable() pour vérifier le cas où la transition est tirable avec deux arcs d'entrée.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testIsFirableTrueDoubleArc() { // T1
+    public void testIsFirableTrueDoubleArc() throws ExistingArcException { // T1
         Place place1 = new Place(2, new LinkedList<Arc>());
         Place place2 = new Place(4, new LinkedList<Arc>());
         EnteringArc arc1 = new EnteringArc(1, place1, transition);
@@ -81,9 +86,10 @@ public class TransitionTest extends TestCase {
 
     /**
      * Test de la méthode isFirable() pour vérifier le cas où la transition n'est pas tirable.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testIsFirableFalse() { // A
+    public void testIsFirableFalse() throws ExistingArcException { // A
         Place place = new Place(0, new LinkedList<Arc>());
         EnteringArc arc1 = new EnteringArc(1, place, transition);
         enteringList.add(arc1);
@@ -92,9 +98,10 @@ public class TransitionTest extends TestCase {
 
     /**
      * Test de la méthode isFirable() pour vérifier le cas où la transition n'est pas tirable avec une arc de vidange et une arc avec pondération zéro.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testIsFirableFalseZeroEmptying() { // T3
+    public void testIsFirableFalseZeroEmptying() throws ExistingArcException { // T3
         Place place1 = new Place(3, new LinkedList<Arc>());
         Place place2 = new Place(3, new LinkedList<Arc>());
 
@@ -107,9 +114,10 @@ public class TransitionTest extends TestCase {
 
     /**
      * Test de la méthode isFirable() pour vérifier le cas où la transition n'est pas tirable avec deux arcs d'entrée.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testIsFirableFalseDoubleArc() { // T2
+    public void testIsFirableFalseDoubleArc() throws ExistingArcException { // T2
         Place place1 = new Place(2, new LinkedList<Arc>());
         Place place2 = new Place(1, new LinkedList<Arc>());
 
@@ -123,9 +131,11 @@ public class TransitionTest extends TestCase {
     /**
      * Test de la méthode fire() pour vérifier le cas où la transition est exécutée avec succès.
      * @throws NegativeTokenValueException 
+     * @throws ExistingArcException 
+     * @throws NotFirableTransitionException
      */
     @Test
-    public void testFireSuccess() throws NotFirableTransitionException, NegativeTokenValueException { // C
+    public void testFireSuccess() throws NotFirableTransitionException, NegativeTokenValueException, ExistingArcException { // C
         Place enteringPlace = new Place(2, new LinkedList<Arc>());
         Place exitingPlace = new Place(1, new LinkedList<Arc>());
         EnteringArc arc1 = new EnteringArc(1, enteringPlace, transition);
@@ -140,9 +150,10 @@ public class TransitionTest extends TestCase {
     /**
      * Test de la méthode fire() pour vérifier le cas où la transition n'est pas tirable et génère une exception.
      * @throws NegativeTokenValueException 
+     * @throws ExistingArcException 
      */
     @Test
-    public void testFireFailure() throws NotFirableTransitionException, NegativeTokenValueException {
+    public void testFireFailure() throws NotFirableTransitionException, NegativeTokenValueException, ExistingArcException {
         Place place = new Place(2, new LinkedList<Arc>());
         EnteringArc arc = new EnteringArc(3, place, transition);
         enteringList.add(arc);
@@ -159,9 +170,11 @@ public class TransitionTest extends TestCase {
     /**
      * Test de la méthode fire() pour vérifier le cas où la transition effectue une vidange.
      * @throws NegativeTokenValueException 
+     * @throws ExistingArcException 
+     * @throws NotFirableTransitionException
      */
     @Test
-    public void testFireEmptying() throws NotFirableTransitionException, NegativeTokenValueException { // RFF
+    public void testFireEmptying() throws NotFirableTransitionException, NegativeTokenValueException, ExistingArcException { // RFF
         Place enteringPlace = new Place(2, new LinkedList<Arc>());
         EnteringArc arc1 = new EmptyingArc(1, enteringPlace, transition);
         transition.addEnteringArc(arc1);
@@ -174,9 +187,11 @@ public class TransitionTest extends TestCase {
     /**
      * Test de la méthode fire() pour vérifier le cas où la transition effectue deux arcs d'entrée avec succès.
      * @throws NegativeTokenValueException 
+     * @throws ExistingArcException 
+     * @throws NotFirableTransitionException
      */
     @Test
-    public void testFireDoubleArc() throws NotFirableTransitionException, NegativeTokenValueException { // DEE
+    public void testFireDoubleArc() throws NotFirableTransitionException, NegativeTokenValueException, ExistingArcException { // DEE
         Place Place1 = new Place(3, new LinkedList<Arc>());
         Place Place2 = new Place(4, new LinkedList<Arc>());
         EnteringArc arc1 = new EnteringArc(2, Place1, transition);
@@ -191,9 +206,11 @@ public class TransitionTest extends TestCase {
     /**
      * Test de la méthode fire() pour vérifier le cas où la transition effectue deux arcs spéciaux avec succès.
      * @throws NegativeTokenValueException 
+     * @throws NotFirableTransitionException
+     * @throws ExistingArcException 
      */
     @Test
-    public void testDoubleArcSpeciaux() throws NotFirableTransitionException, NegativeTokenValueException { // DZV
+    public void testDoubleArcSpeciaux() throws NotFirableTransitionException, NegativeTokenValueException, ExistingArcException { // DZV
         Place Place1 = new Place(0, new LinkedList<Arc>());
         Place Place2 = new Place(5, new LinkedList<Arc>());
         ZeroArc arc1 = new ZeroArc(0, Place1, transition);

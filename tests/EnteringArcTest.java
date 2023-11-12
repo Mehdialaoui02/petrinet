@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import mehdi.Arc;
 import mehdi.EnteringArc;
+import mehdi.ExistingArcException;
 import mehdi.NegativeTokenValueException;
 import mehdi.Place;
 import mehdi.Transition;
@@ -23,9 +24,10 @@ class EnteringArcTest {
 
     /**
      * Méthode d'initialisation avant chaque test.
+     * @throws ExistingArcException 
      */
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws ExistingArcException {
         place = new Place(3, new LinkedList<Arc>()); // Initialisé avec 3 jetons
         transition = new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>());
         enteringArc = new EnteringArc(2, place, transition);

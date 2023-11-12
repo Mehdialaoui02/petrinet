@@ -16,8 +16,9 @@ public class EnteringArc extends Arc {
 	 * @param weight      le poids de l'arc.
 	 * @param place       le lieu connecté par l'arc.
 	 * @param transition  la transition connectée par l'arc.
+	 * @throws ExistingArcException 
 	 */
-	public EnteringArc(int weight, Place place, Transition transition) {
+	public EnteringArc(int weight, Place place, Transition transition) throws ExistingArcException {
 		super(weight, place, transition);
 		this.transition.addEnteringArc(this);
 		// TODO Auto-generated constructor stub

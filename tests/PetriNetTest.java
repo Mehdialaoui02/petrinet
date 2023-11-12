@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import mehdi.Arc;
 import mehdi.EnteringArc;
+import mehdi.ExistingArcException;
 import mehdi.ExitingArc;
 import mehdi.NegativeTokenValueException;
 import mehdi.NotFirableTransitionException;
@@ -25,9 +26,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode firableTransitions() pour vérifier les transitions tirable d'un réseau de Petri.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testFirableTransitions() {
+    public void testFirableTransitions() throws ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -42,14 +44,9 @@ class PetriNetTest {
         Place place = new Place(4, new LinkedList<Arc>());
         EnteringArc arc = new EnteringArc(3, place, transition1);
 
-        Arc arc2 = new ExitingArc(3, place, transition1);
-        transition1.addEnteringArc(arc);
-        transition1.addExitingArc(arc2);
-
         Place place2 = new Place(2, new LinkedList<Arc>());
-        EnteringArc arc3 = new EnteringArc(3, place2, transition2);
+        EnteringArc arc2 = new EnteringArc(3, place2, transition2);
 
-        transition2.addEnteringArc(arc3);
 
         // Ajout des transitions au réseau de Petri
         petriNet.addTransition(transition1);
@@ -67,9 +64,10 @@ class PetriNetTest {
     /**
      * Test de la méthode fire() pour vérifier l'exécution d'une transition tirable.
      * @throws NegativeTokenValueException 
+     * @throws ExistingArcException 
      */
     @Test
-    public void testFireFirableTransition() throws NotFirableTransitionException, NegativeTokenValueException {
+    public void testFireFirableTransition() throws NotFirableTransitionException, NegativeTokenValueException, ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -84,14 +82,9 @@ class PetriNetTest {
         Place place = new Place(4, new LinkedList<Arc>());
         EnteringArc arc = new EnteringArc(3, place, transition1);
 
-        Arc arc2 = new ExitingArc(3, place, transition1);
-        transition1.addEnteringArc(arc);
-        transition1.addExitingArc(arc2);
-
         Place place2 = new Place(2, new LinkedList<Arc>());
         EnteringArc arc3 = new EnteringArc(3, place2, transition2);
 
-        transition2.addEnteringArc(arc3);
 
         // Ajout des transitions au réseau de Petri
         petriNet.addTransition(transition1);
@@ -104,9 +97,10 @@ class PetriNetTest {
     /**
      * Test de la méthode fire() pour vérifier la gestion d'une transition non tirable.
      * @throws NegativeTokenValueException 
+     * @throws ExistingArcException 
      */
     @Test
-    public void testFireNotFirableTransition() throws NotFirableTransitionException, NegativeTokenValueException {
+    public void testFireNotFirableTransition() throws NotFirableTransitionException, NegativeTokenValueException, ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -121,14 +115,10 @@ class PetriNetTest {
         Place place = new Place(4, new LinkedList<Arc>());
         EnteringArc arc = new EnteringArc(3, place, transition1);
 
-        Arc arc2 = new ExitingArc(3, place, transition1);
-        transition1.addEnteringArc(arc);
-        transition1.addExitingArc(arc2);
 
         Place place2 = new Place(2, new LinkedList<Arc>());
         EnteringArc arc3 = new EnteringArc(3, place2, transition2);
 
-        transition2.addEnteringArc(arc3);
 
         // Ajout des transitions au réseau de Petri
         petriNet.addTransition(transition1);
@@ -145,9 +135,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode addTransition() pour vérifier l'ajout de transitions au réseau de Petri.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddTransition() {
+    public void testAddTransition() throws ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -162,14 +153,10 @@ class PetriNetTest {
         Place place = new Place(4, new LinkedList<Arc>());
         EnteringArc arc = new EnteringArc(3, place, transition1);
 
-        Arc arc2 = new ExitingArc(3, place, transition1);
-        transition1.addEnteringArc(arc);
-        transition1.addExitingArc(arc2);
 
         Place place2 = new Place(2, new LinkedList<Arc>());
         EnteringArc arc3 = new EnteringArc(3, place2, transition2);
 
-        transition2.addEnteringArc(arc3);
 
         // Ajout des transitions au réseau de Petri
         petriNet.addTransition(transition1);
@@ -181,9 +168,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode removeTransition() pour vérifier la suppression de transitions du réseau de Petri.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testRemoveTransition() {
+    public void testRemoveTransition() throws ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -198,14 +186,10 @@ class PetriNetTest {
         Place place = new Place(4, new LinkedList<Arc>());
         EnteringArc arc = new EnteringArc(3, place, transition1);
 
-        Arc arc2 = new ExitingArc(3, place, transition1);
-        transition1.addEnteringArc(arc);
-        transition1.addExitingArc(arc2);
 
         Place place2 = new Place(2, new LinkedList<Arc>());
         EnteringArc arc3 = new EnteringArc(3, place2, transition2);
 
-        transition2.addEnteringArc(arc3);
 
         // Ajout des transitions au réseau de Petri
         petriNet.addTransition(transition1);
@@ -221,9 +205,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode addEnteringArc() pour vérifier l'ajout d'une arc d'entrée au réseau de Petri.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddEnteringArc() {
+    public void testAddEnteringArc() throws ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -244,9 +229,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode addExitingArc() pour vérifier l'ajout d'une arc de sortie au réseau de Petri.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddExitingArc() {
+    public void testAddExitingArc() throws ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -267,9 +253,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode addZeroArc() pour vérifier l'ajout d'une arc avec une pondération nulle au réseau de Petri.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddZeroArc() {
+    public void testAddZeroArc() throws ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -290,9 +277,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode addEmptyingArc() pour vérifier l'ajout d'une arc de vidange au réseau de Petri.
+     * @throws ExistingArcException 
      */
     @Test
-    public void testAddEmptyingArc() {
+    public void testAddEmptyingArc() throws ExistingArcException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import mehdi.Arc;
 import mehdi.EnteringArc;
+import mehdi.ExistingArcException;
 import mehdi.Place;
 import mehdi.Transition;
 
@@ -21,9 +22,10 @@ class ArcTest {
 
     /**
      * Méthode d'initialisation avant chaque test.
+     * @throws ExistingArcException 
      */
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws ExistingArcException {
         place = new Place(1, new LinkedList<Arc>());
         transition = new Transition(new LinkedList<Arc>(), new LinkedList<EnteringArc>());
         arc = new EnteringArc(2, place, transition); // Nous avons utiliser EnteringArc comme instance de la classe Arc car elle est abstraite

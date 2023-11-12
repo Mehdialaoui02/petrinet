@@ -80,8 +80,9 @@ public class PetriNet {
 	 * @param w Poids de l'arc.
 	 * @param p Place connectée par l'arc.
 	 * @param t Transition connectée par l'arc.
+	 * @throws ExistingArcException 
 	 */
-	public void addEnteringArc(int w, Place p, Transition t) {
+	public void addEnteringArc(int w, Place p, Transition t) throws ExistingArcException {
 		EnteringArc arc = new EnteringArc(w, p, t);
 		ArcList.add(arc);
 	}
@@ -92,8 +93,9 @@ public class PetriNet {
 	 * @param w Poids de l'arc.
 	 * @param p Place connectée par l'arc.
 	 * @param t Transition connectée par l'arc.
+	 * @throws ExistingArcException 
 	 */
-	public void addExitingArc(int w, Place p, Transition t) {
+	public void addExitingArc(int w, Place p, Transition t) throws ExistingArcException {
 		ExitingArc arc = new ExitingArc(w, p, t);
 		ArcList.add(arc);
 	}
@@ -104,8 +106,9 @@ public class PetriNet {
 	 * @param w Poids de l'arc (poids nul).
 	 * @param p Place connectée par l'arc.
 	 * @param t Transition connectée par l'arc.
+	 * @throws ExistingArcException 
 	 */
-	public void addZeroArc(int w, Place p, Transition t) {
+	public void addZeroArc(int w, Place p, Transition t) throws ExistingArcException {
 		ZeroArc arc = new ZeroArc(w, p, t);
 		ArcList.add(arc);
 	}
@@ -116,8 +119,9 @@ public class PetriNet {
 	 * @param w Poids de l'arc.
 	 * @param p Place connectée par l'arc.
 	 * @param t Transition connectée par l'arc.
+	 * @throws ExistingArcException 
 	 */
-	public void addEmptyingArc(int w, Place p, Transition t) {
+	public void addEmptyingArc(int w, Place p, Transition t) throws ExistingArcException {
 		EmptyingArc arc = new EmptyingArc(w, p, t);
 		ArcList.add(arc);
 	}
