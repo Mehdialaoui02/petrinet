@@ -6,31 +6,46 @@ import org.junit.jupiter.api.Test;
 import mehdi.ExitingArc;
 import mehdi.Place;
 
+
+/**
+ * Classe de test pour la classe ExitingArc.
+ */
 class ExitingArcTest {
 
-	private ExitingArc exitingArc;
-	private Place place;
+    private ExitingArc exitingArc;
+    private Place place;
 
-	@BeforeEach
-	public void setUp() {
-		place = new Place(0,null); 
-		exitingArc = new ExitingArc(2, place, null); 
-	}
+    /**
+     * Méthode d'initialisation avant chaque test.
+     */
+    @BeforeEach
+    public void setUp() {
+        place = new Place(0, null); 
+        exitingArc = new ExitingArc(2, place, null); 
+    }
 
-	@Test
-	public void testIsEntering() {
-		assertFalse(exitingArc.isEntering());
-	}
+    /**
+     * Test de la méthode isEntering() pour vérifier si l'arc n'est pas une entrée.
+     */
+    @Test
+    public void testIsEntering() {
+        assertFalse(exitingArc.isEntering());
+    }
 
-	@Test
-	public void testIsExiting() {
-		assertTrue(exitingArc.isExiting());
-	}
+    /**
+     * Test de la méthode isExiting() pour vérifier si l'arc est une sortie.
+     */
+    @Test
+    public void testIsExiting() {
+        assertTrue(exitingArc.isExiting());
+    }
 
-	@Test
-	public void testExecute() {
-		exitingArc.execute();
-		assertEquals(2, place.getTokenNumber());
-	}
-
+    /**
+     * Test de la méthode execute() pour vérifier le comportement de l'exécution de l'arc.
+     */
+    @Test
+    public void testExecute() {
+        exitingArc.execute();
+        assertEquals(2, place.getTokenNumber());
+    }
 }

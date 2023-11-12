@@ -8,43 +8,64 @@ import mehdi.EnteringArc;
 import mehdi.Place;
 import mehdi.Transition;
 
+/**
+ * Classe de test pour la classe abstraite Arc
+ */
 class ArcTest {
 
-	private Arc arc;
-	private Place place;
-	private Transition transition;
+    private Arc arc;
+    private Place place;
+    private Transition transition;
 
-	@BeforeEach
-	public void setUp() {
-		place = new Place(1, null);
-		transition = new Transition(null, null);
-		arc = new EnteringArc(2, place, transition);
-	}
+    /**
+     * Méthode d'initialisation avant chaque test.
+     */
+    @BeforeEach
+    public void setUp() {
+        place = new Place(1, null);
+        transition = new Transition(null, null);
+        arc = new EnteringArc(2, place, transition);
+    }
 
-	@Test
-	public void testGetWeight() {
-		assertEquals(2, arc.getWeight());
-	}
+    /**
+     * Test de la méthode getWeight() pour vérifier la récupération du poids de l'arc.
+     */
+    @Test
+    public void testGetWeight() {
+        assertEquals(2, arc.getWeight());
+    }
 
-	@Test
-	public void testGetPlace() {
-		assertEquals(place, arc.getPlace());
-	}
+    /**
+     * Test de la méthode getPlace() pour vérifier la récupération de la place associée à l'arc.
+     */
+    @Test
+    public void testGetPlace() {
+        assertEquals(place, arc.getPlace());
+    }
 
-	@Test
-	public void testGetTransition() {
-		assertEquals(transition, arc.getTransition());
-	}
+    /**
+     * Test de la méthode getTransition() pour vérifier la récupération de la transition associée à l'arc.
+     */
+    @Test
+    public void testGetTransition() {
+        assertEquals(transition, arc.getTransition());
+    }
 
-	@Test
-	public void testSetWeight() {
-		arc.setWeight(3);
-		assertEquals(3, arc.getWeight());
-	}
+    /**
+     * Test de la méthode setWeight() pour vérifier la modification du poids de l'arc.
+     */
+    @Test
+    public void testSetWeight() {
+        arc.setWeight(3);
+        assertEquals(3, arc.getWeight());
+    }
 
-	@Test
-	public void testExecute() {
-		// Implement test for the execute method, if applicable
-	}
-
+    /**
+     * Test de la méthode execute() pour vérifier le comportement de l'exécution de l'arc.
+     * Note: Implémenter le test en fonction de la logique d'exécution spécifique de l'arc.
+     */
+    @Test
+    public void testExecute() {
+        // Implémenter le test pour la méthode execute, si applicable
+    }
 }
