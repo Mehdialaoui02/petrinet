@@ -45,8 +45,9 @@ public class PetriNet {
 	 *
 	 * @param t Transition à tirer.
 	 * @throws NotFirableTransitionException Si la transition n'est pas tirable..
+	 * @throws NegativeTokenValueException 
 	 */
-	public void fire(Transition t) throws NotFirableTransitionException {
+	public void fire(Transition t) throws NotFirableTransitionException, NegativeTokenValueException {
 		try {
 		t.fire();
 		} catch (NotFirableTransitionException e) {

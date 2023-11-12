@@ -45,11 +45,11 @@ public class ExitingArc extends Arc {
 	 * Gère une exception si une tentative est faite pour retirer plus de jetons que le lieu n'en a.
 	 */
 	@Override
-	public void execute() {
+	public void execute() throws NegativeTokenValueException{
 		try {
 			this.place.addTokens(this.weight);
 		} catch (NegativeTokenValueException e) {
-			// TODO Auto-generated catch block
+			throw new NegativeTokenValueException();
 		}
 	}
 }

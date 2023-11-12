@@ -78,8 +78,9 @@ public class Transition {
 	 * Réalise le tirage de la transition en exécutant les arcs entrants et sortants.
 	 *
 	 * @throws NotFirableTransitionException Si la transition n'est pas tirable.
+	 * @throws NegativeTokenValueException 
 	 */
-	public void fire() throws NotFirableTransitionException {
+	public void fire() throws NotFirableTransitionException, NegativeTokenValueException {
 		if (this.isFirable()) {
 			for (Arc arc : this.getEnteringArcList()) {
 				arc.execute();

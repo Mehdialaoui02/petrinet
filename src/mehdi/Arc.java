@@ -71,7 +71,8 @@ public abstract class Arc {
 
 	/**
 	 * Méthode abstraite qui sera définie pour les sous classes de l'arc. Elle définit le comportement de l'arc en cas de tirage.
+	 * @throws NegativeTokenValueException 
 	 */
-	public abstract void execute();
+	public abstract void execute() throws NegativeTokenValueException;
 }
 
