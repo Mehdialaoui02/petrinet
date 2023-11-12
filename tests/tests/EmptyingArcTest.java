@@ -1,3 +1,4 @@
+package tests;
 /**
  * Importation des assertions JUnit nécessaires pour les tests.
  */

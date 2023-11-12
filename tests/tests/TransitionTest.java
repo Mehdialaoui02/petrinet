@@ -1,3 +1,4 @@
+package tests;
 import java.util.LinkedList;
 
 import org.junit.Before;
