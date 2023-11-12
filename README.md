@@ -40,8 +40,3 @@ La différence principale entre la conception initiale et l'implémentation du p
 Cette modification a facilité l'extension du projet et la manipulation des sous-classes :  `EnteringArc`, `ExitingArc`, `ZeroArc`, et `EmptyingArc`. 
 
 De plus, une nouvelle méthode `isExecutable()` a été ajoutée à la classe `Arc` pour les arcs entrants (`EnteringArc`), les arcs videurs (`EmptyingArc`), et les arcs zéros (`ZeroArc`). Cette méthode permet de déterminer si un arc est exécutable dans l'état actuel du réseau de Petri. 
-
-
-
-
-
