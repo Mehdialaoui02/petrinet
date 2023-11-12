@@ -32,9 +32,9 @@ public class PetriNet {
 	 */
 	public LinkedList<Transition> firableTransitions() {
 		LinkedList<Transition> firableTransitions = new LinkedList<Transition>();
-		for (Transition t : this.TransitionList) {
+		for (Transition t : this.TransitionList) { 
 			if (t.isFirable()) {
-				firableTransitions.add(t);
+				firableTransitions.add(t);  // Ajoute toute les transitions tirable à la liste firableTransitions
 			}
 		}
 		return firableTransitions;
@@ -47,7 +47,12 @@ public class PetriNet {
 	 * @throws NotFirableTransitionException Si la transition n'est pas tirable..
 	 */
 	public void fire(Transition t) throws NotFirableTransitionException {
-		t.fire();	
+		try {
+		t.fire();
+		} catch (NotFirableTransitionException e) {
+			throw new NotFirableTransitionException();
+		}
+		
 	}
 
 	/**
