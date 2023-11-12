@@ -21,21 +21,14 @@ Le projet intègre également des classes de test JUnit pour chaque classe princ
 
 Pour utiliser le code, vous pouvez suivre ces étapes :
 
-1. **Importer le projet** : Clonez le dépôt Git et importez-le dans votre environnement de développement Java préféré.
+1. **Importer le projet** : Importez le projet  dans votre environnement de développement Java préféré.
 
-2. **Exécuter le code** : Vous pouvez exécuter le code principal depuis votre IDE en lançant la classe principale correspondante.
+2. **Exécuter le code** : Vous pouvez exécuter le code principal depuis votre IDE en lançant la classe principale correspondante ( clic droit --> Run as --> java application ). Pour les tests, vous pouvez les lancer en lançant la classe principale correspondante au test ( clic droit --> Run as --> JUnit Test ).
 
-## Exécution des Tests
-
-Le projet est livré avec un ensemble de tests JUnit pour vérifier le bon fonctionnement des différentes fonctionnalités. Pour exécuter les tests, suivez ces étapes :
-
-1. **Assurez-vous que JUnit est configuré** : Assurez-vous que JUnit est correctement configuré dans votre projet.
-
-2. **Exécutez les tests** : Exécutez les classes de test situées dans `src/test/java/mehdi/` depuis votre IDE.
 
 ## Lien entre les modèles de Conception et l'implémentation 
 
-La différence principale entre la conception initiale et l'implémentation du projet Petrinet réside dans la nature abstraite de la classe `Arc`. Initialement, dans la conception, la classe `Arc` n'était pas déclarée comme abstraite. Cependant, au cours de l'implémentation, nous avons reconnu la nécessité de la rendre abstraite pour encapsuler le comportement général des arcs tout en permettant des spécialisations spécifiques pour différents types d'arcs.
+La différence principale entre la conception initiale et l'implémentation du projet Petrinet réside dans la nature abstraite de la classe `Arc`. Initialement, dans la conception, la classe `Arc` n'était pas déclarée comme abstraite. Cependant, au cours de l'implémentation, nous avons reconnu la nécessité de la rendre abstraite pour encapsuler le comportement général des arcs tout en permettant des spécialisations spécifiques pour différents types d'arcs. Cette approche a été adoptée pour refléter le fait que l'on ne peut pas instancier directement un arc générique ; plutôt, on crée des instances à partir des sous-classes spécialisées telles que `EnteringArc`, `ExitingArc`, `ZeroArc`, et `EmptyingArc`. Ainsi, cette conception abstraite a renforcé la structure du projet en alignant davantage le code avec les principes de l'héritage et de la spécialisation, ce qui facilite l'extension du système avec de nouveaux types d'arcs tout en préservant la cohérence de la modélisation du réseau de Petri.
 
 Cette modification a facilité l'extension du projet et la manipulation des sous-classes :  `EnteringArc`, `ExitingArc`, `ZeroArc`, et `EmptyingArc`. 
 
