@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import mehdi.ExitingArc;
+import mehdi.NegativeTokenValueException;
 import mehdi.Place;
 
 
@@ -42,9 +43,10 @@ class ExitingArcTest {
 
     /**
      * Test de la méthode execute() pour vérifier le comportement de l'exécution de l'arc.
+     * @throws NegativeTokenValueException 
      */
     @Test
-    public void testExecute() {
+    public void testExecute() throws NegativeTokenValueException {
         exitingArc.execute();
         assertEquals(2, place.getTokenNumber());
     }

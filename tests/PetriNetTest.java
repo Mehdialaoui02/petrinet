@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import mehdi.Arc;
 import mehdi.EnteringArc;
 import mehdi.ExitingArc;
+import mehdi.NegativeTokenValueException;
 import mehdi.NotFirableTransitionException;
 import mehdi.PetriNet;
 import mehdi.Place;
@@ -65,9 +66,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode fire() pour vérifier l'exécution d'une transition tirable.
+     * @throws NegativeTokenValueException 
      */
     @Test
-    public void testFireFirableTransition() throws NotFirableTransitionException {
+    public void testFireFirableTransition() throws NotFirableTransitionException, NegativeTokenValueException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();
@@ -101,9 +103,10 @@ class PetriNetTest {
 
     /**
      * Test de la méthode fire() pour vérifier la gestion d'une transition non tirable.
+     * @throws NegativeTokenValueException 
      */
     @Test
-    public void testFireNotFirableTransition() throws NotFirableTransitionException {
+    public void testFireNotFirableTransition() throws NotFirableTransitionException, NegativeTokenValueException {
 
         // Initialisation des listes nécessaires
         transitionsList = new LinkedList<Transition>();

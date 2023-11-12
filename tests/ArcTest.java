@@ -24,7 +24,7 @@ class ArcTest {
     public void setUp() {
         place = new Place(1, null);
         transition = new Transition(null, null);
-        arc = new EnteringArc(2, place, transition);
+        arc = new EnteringArc(2, place, transition); // Nous avons utiliser EnteringArc comme instance de la classe Arc car elle est abstraite
     }
 
     /**
