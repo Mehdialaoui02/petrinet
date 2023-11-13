@@ -1,6 +1,6 @@
 # Petrinet Project
 
-## Overview
+## Vue d'ensemble
 
 Le projet Petrinet est une implémentation d'un réseau de Petri, un modèle mathématique utilisé pour la modélisation des systèmes distribués et concurrents. Ce projet comprend des classes Java pour représenter des places, des transitions et des arcs, ainsi que des fonctionnalités pour exécuter des transitions et déterminer leur tirabilités.
 
