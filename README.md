@@ -2,8 +2,19 @@
 
 ## Vue d'ensemble
 
-Le projet Petrinet est une implémentation d'un réseau de Petri, un modèle mathématique utilisé pour la modélisation des systèmes distribués et concurrents. Ce projet comprend des classes Java pour représenter des places, des transitions et des arcs, ainsi que des fonctionnalités pour exécuter des transitions et déterminer leur tirabilités.
-
+Le réseau de Petri est un modèle mathématique largement utilisé pour décrire et analyser les systèmes concurrents et distribués. Dans le contexte d'une application informatique implémentant un réseau de Petri, le processus de développement est souvent soutenu par des tests unitaires, et JUnit 5 est l'outil de test privilégié pour cette tâche.
+</br>
+La structure du projet est la suivante : </br>
+├───src </br>
+│	└───mehdi </br>
+└───tests 
+    <p>
+Le projet est structuré autour de deux fichiers principaux : le fichier src qui abrite l'ensemble du code source du réseau de Petri, et le fichier tests qui regroupe tous les tests unitaires nécessaires pour garantir la robustesse et la fiabilité du système.
+	</p>
+	<p>
+Le répertoire src contient la mise en œuvre concrète du réseau de Petri, où chaque composant du modèle est soigneusement défini et intégré pour former une représentation fonctionnelle du système. Ce fichier constitue le cœur de l'application, mettant en œuvre les fonctionnalités essentielles du réseau de Petri.
+	</p>
+En parallèle, le répertoire tests contient une série de tests unitaires écrits avec JUnit 5. Ces tests visent à évaluer chaque composant du réseau de Petri de manière isolée, assurant ainsi que chaque élément fonctionne correctement de manière indépendante.
 ## Contenu 
 Le projet Petrinet est constitué d'un ensemble de classes Java visant à modéliser un réseau de Petri. 
 1. Petrinet : Cette classe gère l'ensemble du réseau de Petri. Elle maintient des listes de transitions, de places et d'arcs, permettant ainsi la construction et la manipulation du réseau.
