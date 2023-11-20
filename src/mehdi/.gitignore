@@ -15,3 +15,8 @@
 /NegativeTokenValueException.class
 /NotFirableTransitionException.class
 /ExistingArcException.class
+/EmptyingArc.class
+/EnteringArc.class
+/ExitingArc.class
+/ZeroArc.class
+/package-info.class
